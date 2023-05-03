@@ -1,3 +1,4 @@
+from turtle import mode
 from django.db import models
 
 # This Is For Form 6
@@ -9,6 +10,12 @@ ORIGIN_TYPES_CHOICES = [
     ('مكتب','مكتب'),
     ('مستودع','مستودع'),
     ('اختر من القائمة التالية','اختر من القائمة التالية')
+]
+FACILITY_TYPES_CHOICES = [
+    ('منزل','منزل'),
+    ('شركة','شركة'),
+    ('منشأة حكومية','منشأة حكومية'),
+    ('برجاء تحديد المنشأ','برجاء تحديد المنشأ')
 ]
 
 class ProvideGasMeter(models.Model):
@@ -25,6 +32,22 @@ class ProvideGasMeter(models.Model):
        upload_to='static/images')
     origin_type = models.CharField(max_length=100, 
     choices=ORIGIN_TYPES_CHOICES,default='اختر من القائمة التالية')
+
+    def __str__(self): 
+        return self.name    
+    
+
+class NaturalGasReading(models.Model):
+    name = models.CharField(max_length=300, blank=False, null=False)    
+    national_identity_card_number = models.CharField(
+        max_length=14, blank=False, null=False)
+    last_reading= models.CharField(max_length=300, blank=False, null=False)
+    last_reading_date = models.DateField()
+    current_reading = models.CharField(max_length=300)
+    counter_image = models.ImageField(
+       upload_to='static/images')
+    origin_type = models.CharField(max_length=100, 
+    choices=FACILITY_TYPES_CHOICES,default='برجاء تحديد المنشأ')
 
     def __str__(self): 
         return self.name    
