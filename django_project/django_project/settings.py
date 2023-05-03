@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "Buildings",
+    "ElectricityBills",
+    "GasBills",
+    "WaterBills",
 ]
 
 MIDDLEWARE = [
@@ -55,7 +59,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [],
-        "APP_DIRS": False,
+        "APP_DIRS": True,
         'DIRS': [os.path.join(BASE_DIR, 'templates')],
         "OPTIONS": {
             "context_processors": [
