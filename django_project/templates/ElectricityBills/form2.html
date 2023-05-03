@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form2.css">
+
+    <title>Document</title>
+</head>
+<body> 
+    
+    <div class="container">    
+        <h2 class="title">طلب عداد</h2><br/> 
+            <form action="" method="post">  
+        <div class="ng">
+            <div class="form-row"> 
+                <div >
+                    <label  for="National Id">: رقم الهويه</label><br/>    
+                
+                    <input type="number" name="national ID"  id="id" placeholder="الرقم القومى"><br/><br/>
+                </div>     
+                <div >
+                    <label for = "name">:اسم مقدم الطلب</label><br/>     
+                
+                    <input type = "name" name = "name" id = "name" placeholder ="الاسم بالكامل"/>
+                    <br/><br/>   
+                </div> 
+        </div> 
+        <div class="address">
+            <label for="name">: عنوان تركيب العداد</label><br/>    
+        
+            <input  class="add" type="text" name="الاسم" id="الاسم" placeholder="عنوان تكريب العداد "/><br>
+        </div>
+            <div class="form-row2">
+                <div class="label-1">
+                    <label for="name">: رقم المحمول</label><br/>    
+                    <input   type="tel" name="number" id="" placeholder="رقم المحمول ">
+                </div> 
+                <div>
+                    <label for = "text">:المنطقه</label><br/>     
+        
+                    <input type = "text" name = "address" id = "address" placeholder = "المنطقه"><br/><br/>     
+                </div>
+                <div>
+            <label for="text" >:المحافظه</label><br/>     
+            <select id="address" name="address">
+                <option value="القاهره">القاهره</option>
+                <option value="الجيزه">الجيزه</option>
+                <option value="القليوبيه">القليوبيه</option>
+                <option value="المنوفيه">المنوفيه</option>
+                <option value="الغربيه">الغربيه</option>
+                <option value="كفر الشيخ">كر الشيخ</option>
+                <option value="البحيره">البحيره</option>
+                <option value="اسكندريه">اسكندريه</option>
+                <option value="مرسى مطروح">مرسى مطروح</option>
+                <option value="دمياط">دمياط</option>
+                <option value="الدقهليه">الدقهليه</option>
+                <option value="الشرقيه">الشرقيه</option>
+                <option value="السويس">السويس</option>
+                <option value="الاسماعيليه">الاسماعيله</option>
+                <option value="بور سعيد ">بور سعيد</option>
+                <option value="جنوب سيناء">جنوب سيناء</option>
+                <option value="شمال سيناء">شمال سيناء</option>
+                <option value="البحر الاحمر">البحر الاحمر</option>
+                <option value="سوهاج">سوهاج</option>
+                <option value="الفيوم">الفيوم</option>
+                <option value="بنى سويف">بنى سويف</option>
+                <option value="قنا">قنا</option>
+                <option value="المنيا">المنيا</option>
+                <option value="الاقصر">الاقصر</option>
+                <option value="اسيوط">اسيوط</option>
+                <option value="اسوان">اسوان</option>
+                <option value="الوادى الجديد">الوادى الجديد</option>
+            </select> 
+                </div>  
+                
+    </div>
+    <div class="form-row3">   
+    <div class="number" >
+    <label  for="number">: رقم العقار</label><br/>    
+
+    <input type="number" name="number"  id="" placeholder="الرقم العقار"><br/><br/>
+    </div>     
+    <div >
+    <label for = "name">:رقم محمول اخر</label><br/>     
+
+    <input type = "name" name = "name" id = "name" placeholder ="الاسم بالكامل"/>
+    <br/><br/>   
+    </div>  
+    </div>
+
+        <div class="picature">
+            <div class="field">
+                <p>*صورة من الرقم القومى /جواز السفر </p>
+                <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+                <p>2: العدد الاقصى للملفات</p>
+                <p>3MP:الحجم الاقصى للملفات</p>
+                <div class="file">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
+                    <p>اسحب الملف</p>
+                    <p>او</p>
+
+                    <label class="custom_file-input" for="file-input">        ادراج صورة      </label>
+                    <input  hidden type="file" id="file-input"  />
+	
+                    
+                </div>
+            </div>
+            <div class="field">
+                <p>*الموافقات</p>
+                <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+                <p>2: العدد الاقصى للملفات</p>
+                <p>3MP:الحجم الاقصى للملفات</p>
+                <div class="file">
+                    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
+                    <p>اسحب الملف</p>
+                    <p>او</p>
+
+                    <label class="custom_file-input" for="file-input">         ادراج صورة          </label>
+                    <input  hidden type="file" id="file-input"  />
+
+                </div>
+            </div>
+        </div>
+
+    <div class="form-row2">
+        <div class="label-1">
+            <label for="name">: اسم جهه الموافقه المصدره للقرار</label><br/>    
+            <input   type="text" name="name" id="" placeholder=" اسم جهة الموافقه المصدرة للقرار ">
+        </div> 
+        <div>
+            <label for = "text">:جهة الموافقه</label><br/>     
+
+            <input type = "text" name = "address" id = "address" placeholder = "جهة الموافقه"><br/><br/>     
+        </div>
+        <div>
+    <label for="text" >:نوع المنشأة</label><br/>     
+    <select id="address" name="address" placeholder="نوع المنشأة">
+        <option value="مبنى سكنى">مبنى سكنى</option>
+        <option value="مبنى سكنى">مبنى غير  سكنى </option>
+    </select> 
+        </div> 
+            
+    </div>
+    <div class="form-row2">
+        <div>
+            <label for = "text">:صفه مقدم الطلب </label><br/>     
+
+            <input type = "text" name = "address" id = "address" placeholder = " صفه مقدم الطلب"><br/><br/>     
+        </div>
+        <div>
+            <label for = "text">:رقم الضريبه </label><br/>     
+
+            <input type = "text" name = "address" id = "address" placeholder = " رقم الضريبه "><br/><br/>     
+        </div>
+    </div>
+    <button class="btn">تسجيل</button>
+    </form>
+    </div>
+    <link rel="stylesheet" href="script.js">
+    <link rel="stylesheet" href="script2.js">
+    <script src="main.js"></script>
+</body>
