@@ -1,1 +1,37 @@
-/venv
+# Ignore database files
+*.sqlite3
+*.db
+django_project/db.sqlite3
+db.sqlite3
+# Ignore compiled Python files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore local settings file
+local_settings.py
+
+# Ignore media files
+media/
+
+# Ignore static files
+static/
+# Ignore logs
+logs/
+
+# Ignore generated documentation
+docs/_build/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore Django migrations
+**/migrations/
+
+# Ignore test files
+**/tests/
+**/test_*.py
+
+# Ignore virtual environment
+.venv/
