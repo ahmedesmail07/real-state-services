@@ -14,15 +14,21 @@
     
     <div class="container">    
         <h2 class="title">طلب عداد</h2><br/> 
-            <form action="" method="post">  
+            <form action="" method="post" enctype="multipart/form-data">  
                 {% csrf_token %}
         <div class="ng">
             <div class="form-row"> 
                 <div >
                     <label  for="National Id">: رقم الهويه</label><br/>    
                 
-                    <input type="number" name="national ID"  id="id" placeholder="الرقم القومى"><br/><br/>
+                    <input type="number" name="national_ID"  id="id" placeholder="الرقم القومى"><br/><br/>
                 </div>     
+                 {% comment %} this is the error massage {% endcomment %}
+      {% if error_msg %}
+      <div class="alert alert-danger" role="alert">
+          {{ error_msg }}
+      </div>
+  {% endif %}
                 <div >
                     <label for = "name">:اسم مقدم الطلب</label><br/>     
                 
@@ -47,7 +53,7 @@
                 </div>
                 <div>
             <label for="text" >:المحافظه</label><br/>     
-            <select id="address" name="address">
+            <select id="address" name="Governorate">
                 <option value="القاهره">القاهره</option>
                 <option value="الجيزه">الجيزه</option>
                 <option value="القليوبيه">القليوبيه</option>
@@ -139,7 +145,7 @@
         </div>
         <div>
     <label for="text" >:نوع المنشأة</label><br/>     
-    <select id="address" name="address" placeholder="نوع المنشأة">
+    <select id="address" name="Enterprise" placeholder="نوع المنشأة">
         <option value="مبنى سكنى">مبنى سكنى</option>
         <option value="مبنى سكنى">مبنى غير  سكنى </option>
     </select> 
