@@ -1,10 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-<<<<<<< HEAD
-from .models import ProvideGasMeter, NaturalGasReading
-=======
 from .models import ProvideGasMeter, NaturalGasReading, CollectingGasBills
->>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
 
 
 def form_six(request):
@@ -30,7 +26,7 @@ def form_six(request):
 
         # If there are no validation errors, save the data
         if not messages.get_messages(request):
-            new_bill = NaturalGasReading(
+            new_bill = ProvideGasMeter(
                 name=name,
                 national_identity_card_number=national_identity_card_number,
                 national_identity_card_photo=national_identity_card_photo,
@@ -78,8 +74,6 @@ def form_seven(request):
             return render(request, 'GasBills/form7.html')
 
     return render(request, 'GasBills/form7.html')
-<<<<<<< HEAD
-=======
 
 
 def form_eight(request):
@@ -115,4 +109,3 @@ def form_eight(request):
             return render(request, 'GasBills/form8.html')
 
     return render(request, 'GasBills/form8.html')
->>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0

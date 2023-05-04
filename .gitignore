@@ -1,0 +1,38 @@
+/venv
+.venv
+# Ignore database files
+*.sqlite3
+*.db
+
+# Ignore compiled Python files
+_pycache_/
+*.pyc
+*.pyo
+
+# Ignore local settings file
+local_settings.py
+
+# Ignore media files
+media/
+
+# Ignore static files
+static/
+staticfiles/
+
+# Ignore logs
+logs/
+
+# Ignore generated documentation
+docs/_build/
+
+# Ignore IDE files
+.vscode/
+.idea/
+
+# Ignore Django migrations
+**/migrations/
+
+# Ignore test files
+**/tests/
+*/test_.py
+

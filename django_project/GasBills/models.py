@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-from ast import mod
-from pyexpat import model
->>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
-from turtle import mode
 from django.db import models
 
 # This Is For Form 6
@@ -55,9 +49,8 @@ class NaturalGasReading(models.Model):
     choices=FACILITY_TYPES_CHOICES,default='برجاء تحديد المنشأ')
 
     def __str__(self): 
-<<<<<<< HEAD
         return self.name    
-=======
+
         return self.name    
     
 class CollectingGasBills(models.Model):
@@ -74,4 +67,3 @@ class CollectingGasBills(models.Model):
     
     def __str__(self): 
         return self.name  
->>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
