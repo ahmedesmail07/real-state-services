@@ -1,19 +1,23 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
     <title>ادخال قراءة عداد غاز طبيعي</title>
 	<link rel="stylesheet" type="text/css" href="css/form7.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/form7.css' %}">
 </head>
 <body>
-	<form>
+	<form action="" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
 	  <div>
 		<label for="name">اسم مقدم الطلب:</label>
 		<input type="text" id="name" name="name" required>
 	  </div>
 	  <div>
 		<label for="id">رقم البطاقة:</label>
-		<input type="text" id="id" name="id" required>
+		<input type="text" id="id" name="national-id" required>
 	  </div>
 	  <div>
 		<label for="last-reading">اخر قراءة للعداد:</label>
