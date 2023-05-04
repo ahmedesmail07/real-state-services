@@ -1,12 +1,18 @@
+{%load static%}
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>تقديم علي عداد غاز</title>
-	<link rel="stylesheet" type="text/css" href="css/form6.css">
+	<!-- {%block title%}تقديم على عداد غاز{%endblock title%} -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/form6.css' %}">
 </head>
 <body>
+	
         <div class="container">
-			<form action="/submit-gas-counter-request" method="post">
+			
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
 				<div>
 				  <label for="full-name" >اسم مقدم الطلب :  </label>
 				  <input type="text" id="full-name" name="full-name" required>
@@ -47,8 +53,7 @@
 
 
 		</div>
-
-	
+		
 
 </body>
 </html>
