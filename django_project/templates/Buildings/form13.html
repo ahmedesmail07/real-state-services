@@ -1,15 +1,19 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
     <title>    طلبات تصالح المباني</title>
 	<link rel="stylesheet" type="text/css" href="css/form13.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/form13.css' %}">
 </head>
 <body>
 	<body>
 		<div class="container">
 			<h1>تحصيل طلبات التصالح للمبني</h1>
-		<form>
+		<form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
 		  <div>
 			<label for="name">اسم مقدم الطلب:</label>
 			<input type="text" id="name" name="name" required>
@@ -28,7 +32,7 @@
 		  </div>
 		  <div>
 			<label for="meter-image"> تقديم طلب المخالفة الصادر من الحي الزراعي التابع للمخالفة  : </label>
-			<input type="file" id="meter-image" name="meter-image" accept="image/*" required>
+			<input type="file" id="meter-image" name="meter-image-2" accept="image/*" required>
 		  </div>
 		  <div>
 			<label for="governorate-number">رقم تليفون مقدم الطلب :</label>
@@ -41,11 +45,11 @@
 
 		  <div>
 			<label for="last-reading-image">    عدد 3 نسخ من الموقف الضريبي الصادر المكتب الهندسي  </label>
-			<input type="file" id="last-reading-image" name="last-reading-image" accept="image/*" required>
+			<input type="file" id="last-reading-image" name="last-reading-image-2" accept="image/*" required>
 		  </div>
 		  <div>
 			<label for="governorate-number">تحديد المكان المخالف للبناء   بالتفصيل  :     </label>
-			<input type="text" id="governorate-number" name="governorate-number" required>
+			<input type="text" id="governorate-number" name="governorate-number-2" required>
 			
 		  </div>
 

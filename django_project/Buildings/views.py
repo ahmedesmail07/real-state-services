@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib import messages
-from .models import BuildingPermitApplications
+from .models import BuildingPermitApplications, CollectingReconciliationBuilding
 
 
 def form_twelve(request):
@@ -40,3 +40,42 @@ def form_twelve(request):
             return render(request, 'Buildings/form12.html')
 
     return render(request, 'Buildings/form12.html')
+
+
+def form_thirteen(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        national_identity_card_number = request.POST.get("national-id")
+        national_identity_card_photo = request.POST.get("meter-image")
+        agricultural_basin_number = request.POST.get("meter-number")
+        violation_request = request.POST.get("meter-image-2")
+        phone_number = request.POST.get("governorate-number")
+        violation_request_eng = request.POST.get("last-reading-image")
+        approval_photos = request.POST.get("last-reading-image-2")
+        space = request.POST.get("governorate-number-2")
+
+        # Perform validation
+        if not name:
+            messages.error(request, 'Please provide a name.')
+        elif not national_identity_card_number:
+            messages.error(
+                request, 'Please provide a national identity card number.')
+        # Add more validation conditions as needed
+
+        # If there are no validation errors, save the data
+        if not messages.get_messages(request):
+            new_app = CollectingReconciliationBuilding(
+                name=name,
+                national_identity_card_number=national_identity_card_number,
+                national_identity_card_photo=national_identity_card_photo,
+                agricultural_basin_number=agricultural_basin_number,
+                violation_request=violation_request,
+                phone_number=phone_number,
+                violation_request_eng=violation_request_eng,
+                approval_photos=approval_photos,
+                space=space
+            )
+            new_app.save()
+            return render(request, 'Buildings/form13.html')
+
+    return render(request, 'Buildings/form13.html')
