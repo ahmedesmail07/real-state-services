@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/form1.css' %}">
+    <title>Document</title>
+</head>
+<body>  
+<div class="container">    
+    <h2 class="title">تسجيل قراءة عداد </h2><br/> 
+      {% comment %} this is the error massage {% endcomment %}
+      {% if error_msg %}
+      <div class="alert alert-danger" role="alert">
+          {{ error_msg }}
+      </div>
+  {% endif %}
+        <form action="" method="post" enctype="multipart/form-data">  
+            {% csrf_token %}
+    <div class="ng">
+        <div class="form-row2">
+            <div class="label-1">
+                <label for="name">كود السداد الإلكتروني*</label><br/>    
+                <input   type="tel" name="codenumber" id="" placeholder=" كود السداد الإلكتروني ">
+            </div> 
+                <div>
+                    <label for = "text">: قراءة العدا الحاليه</label><br/>     
+                    <input type = "text" name = "meterreding" id = "address" placeholder = "قراءة العداد الحاليه"><br/><br/>     
+                </div>
+                <div>
+            <label for="text" >: الشركه</label><br/>     
+            <select id="address" name="company" dir="rtl">
+                <option value="شمال القاهره">شمال القاهره</option>
+                <option value="جنوب القاهره">جنوب القاهره</option>
+                <option value="جنوب الدلتا">جنوب الدلتا</option>
+                <option value="شمال الدلتا">شمال الدلتا</option>
+                <option value="القناه">القناه</option>
+                <option value=" مصر العليا">مصر العليا</option>
+                <option value="البحيره">البحيره</option>
+                <option value="اسكندريه">اسكندريه</option>
+            </select> 
+        </div>  
+    </div>
+    <div class="picature" dir="rtl">
+        <div class="field">
+            <p>* صوره حديثه للعداد </p>
+            <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+            <p>2: العدد الاقصى للملفات</p>
+            <p>3MP:الحجم الاقصى للملفات</p>
+            <div class="file">
+                <p>اسحب الملف</p>
+                <p>او</p>
+
+    <label class="custom_file-input" for="file-input">ادراج صورة</label>  
+    <input  hidden type="file" id="file-input"  name = "image"/>
+
+            </div>
+        </div>
+    </div>
+        <div class="address">
+            <label for="name">: تعليقات</label><br/>    
+        
+            <input  class="add" type="text" name="comments" id="الاسم" placeholder="  تعليقات "/><br>
+        </div>
+
+        <div>
+            <button class="but"> تسجيل</button>
+        </div>
+        </div>
+        </form>
+    </div>
+  
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
