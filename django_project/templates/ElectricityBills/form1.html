@@ -11,21 +11,27 @@
 <body>  
 <div class="container">    
     <h2 class="title">تسجيل قراءة عداد </h2><br/> 
+      {% comment %} this is the error massage {% endcomment %}
+      {% if error_msg %}
+      <div class="alert alert-danger" role="alert">
+          {{ error_msg }}
+      </div>
+  {% endif %}
         <form action="" method="post">  
             {% csrf_token %}
     <div class="ng">
         <div class="form-row2">
             <div class="label-1">
                 <label for="name">كود السداد الإلكتروني*</label><br/>    
-                <input   type="tel" name="number" id="" placeholder=" كود السداد الإلكتروني ">
+                <input   type="tel" name="codenumber" id="" placeholder=" كود السداد الإلكتروني ">
             </div> 
                 <div>
                     <label for = "text">: قراءة العدا الحاليه</label><br/>     
-                    <input type = "text" name = "address" id = "address" placeholder = "قراءة العداد الحاليه"><br/><br/>     
+                    <input type = "text" name = "meterreding" id = "address" placeholder = "قراءة العداد الحاليه"><br/><br/>     
                 </div>
                 <div>
             <label for="text" >: الشركه</label><br/>     
-            <select id="address" name="address" dir="rtl">
+            <select id="address" name="company" dir="rtl">
                 <option value="شمال القاهره">شمال القاهره</option>
                 <option value="جنوب القاهره">جنوب القاهره</option>
                 <option value="جنوب الدلتا">جنوب الدلتا</option>
@@ -48,7 +54,7 @@
                 <p>او</p>
 
     <label class="custom_file-input" for="file-input">ادراج صورة</label>  
-    <input  hidden type="file" id="file-input"  />
+    <input  hidden type="file" id="file-input"  name = "image"/>
 
             </div>
         </div>
@@ -56,7 +62,7 @@
         <div class="address">
             <label for="name">: تعليقات</label><br/>    
         
-            <input  class="add" type="text" name="الاسم" id="الاسم" placeholder="  تعليقات "/><br>
+            <input  class="add" type="text" name="comments" id="الاسم" placeholder="  تعليقات "/><br>
         </div>
 
         <div>
@@ -65,5 +71,6 @@
         </div>
         </form>
     </div>
+  
     <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 </body>

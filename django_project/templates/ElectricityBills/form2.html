@@ -1,10 +1,12 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form2.css">
+    <link rel="stylesheet" href="{%static 'css/form2.css'%}">
 
     <title>Document</title>
 </head>
@@ -13,6 +15,7 @@
     <div class="container">    
         <h2 class="title">طلب عداد</h2><br/> 
             <form action="" method="post">  
+                {% csrf_token %}
         <div class="ng">
             <div class="form-row"> 
                 <div >
@@ -30,12 +33,12 @@
         <div class="address">
             <label for="name">: عنوان تركيب العداد</label><br/>    
         
-            <input  class="add" type="text" name="الاسم" id="الاسم" placeholder="عنوان تكريب العداد "/><br>
+            <input  class="add" type="text" name="meter_address" id="الاسم" placeholder="عنوان تكريب العداد "/><br>
         </div>
             <div class="form-row2">
                 <div class="label-1">
                     <label for="name">: رقم المحمول</label><br/>    
-                    <input   type="tel" name="number" id="" placeholder="رقم المحمول ">
+                    <input   type="tel" name="phone_num" id="" placeholder="رقم المحمول ">
                 </div> 
                 <div>
                     <label for = "text">:المنطقه</label><br/>     
@@ -80,12 +83,12 @@
     <div class="number" >
     <label  for="number">: رقم العقار</label><br/>    
 
-    <input type="number" name="number"  id="" placeholder="الرقم العقار"><br/><br/>
+    <input type="number" name="block_num"  id="" placeholder="الرقم العقار"><br/><br/>
     </div>     
     <div >
     <label for = "name">:رقم محمول اخر</label><br/>     
 
-    <input type = "name" name = "name" id = "name" placeholder ="الاسم بالكامل"/>
+    <input type = "name" name = "phone_num2" id = "name" placeholder ="الاسم بالكامل"/>
     <br/><br/>   
     </div>  
     </div>
@@ -102,7 +105,7 @@
                     <p>او</p>
 
                     <label class="custom_file-input" for="file-input">        ادراج صورة      </label>
-                    <input  hidden type="file" id="file-input"  />
+                    <input  hidden type="file" id="file-input" name="att_image" />
 	
                     
                 </div>
@@ -118,7 +121,7 @@
                     <p>او</p>
 
                     <label class="custom_file-input" for="file-input">         ادراج صورة          </label>
-                    <input  hidden type="file" id="file-input"  />
+                    <input  hidden type="file" id="file-input" name="id_image"  />
 
                 </div>
             </div>
@@ -127,12 +130,12 @@
     <div class="form-row2">
         <div class="label-1">
             <label for="name">: اسم جهه الموافقه المصدره للقرار</label><br/>    
-            <input   type="text" name="name" id="" placeholder=" اسم جهة الموافقه المصدرة للقرار ">
+            <input   type="text" name="approvale_authority_name" id="" placeholder=" اسم جهة الموافقه المصدرة للقرار ">
         </div> 
         <div>
             <label for = "text">:جهة الموافقه</label><br/>     
 
-            <input type = "text" name = "address" id = "address" placeholder = "جهة الموافقه"><br/><br/>     
+            <input type = "text" name = "approvale_authority" id = "address" placeholder = "جهة الموافقه"><br/><br/>     
         </div>
         <div>
     <label for="text" >:نوع المنشأة</label><br/>     
@@ -147,12 +150,12 @@
         <div>
             <label for = "text">:صفه مقدم الطلب </label><br/>     
 
-            <input type = "text" name = "address" id = "address" placeholder = " صفه مقدم الطلب"><br/><br/>     
+            <input type = "text" name = "applicant" id = "address" placeholder = " صفه مقدم الطلب"><br/><br/>     
         </div>
         <div>
             <label for = "text">:رقم الضريبه </label><br/>     
 
-            <input type = "text" name = "address" id = "address" placeholder = " رقم الضريبه "><br/><br/>     
+            <input type = "text" name = "tax_num" id = "address" placeholder = " رقم الضريبه "><br/><br/>     
         </div>
     </div>
     <button class="btn">تسجيل</button>
@@ -160,5 +163,5 @@
     </div>
     <link rel="stylesheet" href="script.js">
     <link rel="stylesheet" href="script2.js">
-    <script src="main.js"></script>
+    <script src="{%static 'main.js'%}"></script>
 </body>
