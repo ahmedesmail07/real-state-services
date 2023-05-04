@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.contrib import messages
+<<<<<<< HEAD
 from .models import ProvideGasMeter, NaturalGasReading
+=======
+from .models import ProvideGasMeter, NaturalGasReading, CollectingGasBills
+>>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
 
 
 def form_six(request):
@@ -74,3 +78,41 @@ def form_seven(request):
             return render(request, 'GasBills/form7.html')
 
     return render(request, 'GasBills/form7.html')
+<<<<<<< HEAD
+=======
+
+
+def form_eight(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        national_identity_card_number = request.POST.get("national-id")
+        counter_image = request.POST.get("meter-image")
+        counter_number = request.POST.get("meter-number")
+        neighborhood_number = request.POST.get("district-number")
+        governorate_number = request.POST.get("governorate-number")
+        another_counter_image = request.POST.get("last-reading-image")
+
+        # Perform validation
+        if not name:
+            messages.error(request, 'Please provide a name.')
+        elif not national_identity_card_number:
+            messages.error(
+                request, 'Please provide a national identity card number.')
+        # Add more validation conditions as needed
+
+        # If there are no validation errors, save the data
+        if not messages.get_messages(request):
+            add_reading = CollectingGasBills(
+                name=name,
+                national_identity_card_number=national_identity_card_number,
+                counter_image=counter_image,
+                counter_number=counter_number,
+                neighborhood_number=neighborhood_number,
+                governorate_number=governorate_number,
+                another_counter_image=another_counter_image
+            )
+            add_reading.save()
+            return render(request, 'GasBills/form8.html')
+
+    return render(request, 'GasBills/form8.html')
+>>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0

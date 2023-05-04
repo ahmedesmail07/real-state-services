@@ -13,7 +13,10 @@ def provideElectricMeter(request):
         return render(request, 'ElectricityBills/form1.html', {'form': form,
                                                             'error_msg':'You entered wrong data'})
     else:
-        return render(request, 'ElectricityBills/form1.html')
+        form = PaymentForm()
+    return render(request, 'ElectricityBills/form1.html', {'form': form,
+                                                           'error_msg':'You entered wrong data'})
+
 
 def form2(request):
     if request.method == 'POST':

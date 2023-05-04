@@ -1,10 +1,12 @@
+
+.venv
 # Ignore database files
 *.sqlite3
 *.db
-django_project/db.sqlite3
-db.sqlite3
+
 # Ignore compiled Python files
-__pycache__/
+_pycache_/
+>>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
 *.pyc
 *.pyo
 
@@ -16,6 +18,8 @@ media/
 
 # Ignore static files
 static/
+staticfiles/
+
 # Ignore logs
 logs/
 

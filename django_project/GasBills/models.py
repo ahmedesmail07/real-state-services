@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+from ast import mod
+from pyexpat import model
+>>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
 from turtle import mode
 from django.db import models
 
@@ -50,4 +55,23 @@ class NaturalGasReading(models.Model):
     choices=FACILITY_TYPES_CHOICES,default='برجاء تحديد المنشأ')
 
     def __str__(self): 
+<<<<<<< HEAD
         return self.name    
+=======
+        return self.name    
+    
+class CollectingGasBills(models.Model):
+    name = models.CharField(max_length=300, blank=False, null=False)    
+    national_identity_card_number = models.CharField(
+        max_length=14, blank=False, null=False)
+    counter_image = models.ImageField(
+       upload_to='static/images')
+    counter_number = models.CharField(max_length=20)
+    neighborhood_number= models.PositiveIntegerField()
+    governorate_number = models.PositiveIntegerField()
+    another_counter_image = models.ImageField(
+       upload_to='static/images')
+    
+    def __str__(self): 
+        return self.name  
+>>>>>>> 9dcf350bc7dfcb42091b1273627e8cf2c354ccb0
