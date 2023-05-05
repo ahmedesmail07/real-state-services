@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import CollectingWaterBills, WaterMeter, WaterMeterReading
+
+admin.site.register(WaterMeter)
+admin.site.register(WaterMeterReading)
+admin.site.register(CollectingWaterBills)

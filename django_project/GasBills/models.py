@@ -21,8 +21,7 @@ class ProvideGasMeter(models.Model):
     name = models.CharField(max_length=300, blank=False, null=False)
     national_identity_card_number = models.CharField(
         max_length=14, blank=False, null=False)
-    national_identity_card_photo = models.ImageField(upload_to='static/images',
-    )
+    national_identity_card_photo = models.ImageField(upload_to='static/images')
     copy_of_the_ownership_contract = models.ImageField(
         upload_to='static/images')
     photo_of_recent_electricity_receipt = models.ImageField(
@@ -51,7 +50,7 @@ class NaturalGasReading(models.Model):
     def __str__(self): 
         return self.name    
 
-        return self.name    
+            
     
 class CollectingGasBills(models.Model):
     name = models.CharField(max_length=300, blank=False, null=False)    

@@ -1,15 +1,19 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
     <title>  التقديم علي عداد مياة </title>
 	<link rel="stylesheet" type="text/css" href="css/form9.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/form9.css' %}">
 </head>
 <body>
 	<body>
 		<div class="container">
 			<h1>  طلبات التقديم علي عداد مياة</h1>
-		<form>
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p }}
 		  <div>
 			<label for="name">اسم مقدم الطلب:</label>
 			<input type="text" id="name" name="name" required>
@@ -30,7 +34,7 @@
 
 		  <div>
 			<label for="meter-image">  صورة عقد ملكية العقار او المنشأ :</label>
-			<input type="file" id="meter-image" name="meter-image" accept="image/*" required>
+			<input type="file" id="meter-image" name="meter-image-2" accept="image/*" required>
 		  </div>
 
 		<div>
@@ -41,7 +45,7 @@
 
 		<div>
 			<label for="meter-image">صورة  اصل ترخيص المبني  :</label>
-			<input type="file" id="meter-image" name="meter-image" accept="image/*" required>
+			<input type="file" id="meter-image" name="meter-image-3" accept="image/*" required>
 
 		</div>
 			
