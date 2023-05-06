@@ -1,47 +1,55 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form2.css">
-    <link rel="stylesheet" href="css/form4.css">
+    <link rel="stylesheet" href="{%static 'css/form2.css'%}">
+    <link rel="stylesheet" href="{%static 'css/form4.css'%}">
     <title>طلب تصالح</title>
      <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css">
 </head>
 <body>
     <div class="container">    
         <h2 class="title">طلب تصالح</h2><br/> 
-            <form action="" method="post">  
+            <form action="" method="post" enctype="multipart/form-data">  
+                {% csrf_token %}
+                {{ form.as_p }}
+
         <div class="ng">
-    <div class="picature">
-        <div class="field">
-            <p>*عقد ملكيه </p>
-            <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
-            <p>2: العدد الاقصى للملفات</p>
-            <p>3MP:الحجم الاقصى للملفات</p>
-            <div class="file">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
-                <p>اسحب الملف</p>
-                <p>او</p>
-                <input type="file" id="file" hidden>
-                <button>اضغط هنا</button>
-                
+            <div class="picature">
+                <div class="field">
+                    <p>صوره بطاقه المالك او وكيله</p>
+                    <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+                    <p>2: العدد الاقصى للملفات</p>
+                    <p>3MP:الحجم الاقصى للملفات</p>
+                    <div class="file">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
+                        <p>اسحب الملف</p>
+                        <p>او</p>
+            
+                        <label class="custom_file-input" for="file-input1">        ادراج صورة      </label>
+                        <input  hidden type="file" id="file-input1" name="image1" />
+            
+                        
+                    </div>
+                </div>
+                <div class="field">
+                    <p>عقد ملكيه البيت</p>
+                    <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+                    <p>2: العدد الاقصى للملفات</p>
+                    <p>3MP:الحجم الاقصى للملفات</p>
+                    <div class="file">
+                        <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
+                        <p>اسحب الملف</p>
+                        <p>او</p>
+            
+                        <label class="custom_file-input" for="file-input2">         ادراج صورة          </label>
+                        <input  hidden type="file" id="file-input2" name="image2"  />
+            
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="field">
-            <p>*الرسومات الهندسيه</p>
-            <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
-            <p>2: العدد الاقصى للملفات</p>
-            <p>3MP:الحجم الاقصى للملفات</p>
-            <div class="file">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
-                <p>اسحب الملف</p>
-                <p>او</p>
-                <input type="file" id="file" hidden>
-                <button>اضغط هنا</button>
-            </div>
-        </div>
-    </div>
     <div class="location">
         <div >
             <div id="latt" ><label for="">latitude:</label></div>
@@ -61,7 +69,7 @@
             </form>
         </div>
         <script src="https://js.arcgis.com/4.19/"></script>
-        <link rel="stylesheet" href="script2.js">
-    <script src="js/script2.js"></script>
+        <link rel="stylesheet" href="{%static 'script2.js'%}">
+    <script src="{%static 'js/script2.js'%}"></script>
 </body>
 </html>

@@ -1,28 +1,32 @@
+{%load static%}
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form2.css">
-    <link rel="stylesheet" href="css/form4.css">
+    <link rel="stylesheet" href="{%static 'css/form2.css'%}">
+    <link rel="stylesheet" href="{%static 'css/form4.css'%}">
     <title>طلب رخصه مبانى</title>
      <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css">
 </head>
 <body>
   <div class="container">    
     <h2 class="title">طلب رخصه</h2><br/> 
-        <form action="" method="post">  
+        <form action="" method="post" enctype="multipart/form-data">  
+            {% csrf_token %}
+            {{ form.as_p }}
+
     <div class="ng">
         <div class="form-row">
             <div>
                 <label for="name">: نوع الهويه</label><br/>    
             
-                <input   type="text" name="الاسم" id="الاسم" placeholder="الرقم القومى"/><br>
+                <input   type="text" name="national_ID2" id="الاسم" placeholder="الرقم القومى"/><br>
             </div>     
             <div >
                 <label  for="National Id">: رقم الهويه</label><br/>    
             
-                <input type="number" name="national ID"  id="id" placeholder="الرقم القومى"><br/><br/>
+                <input type="number" name="national_ID"  id="id" placeholder="الرقم القومى"><br/><br/>
             </div>     
             <div >
                 <label for = "name">:اسم مقدم الطلب</label><br/>     
@@ -34,21 +38,21 @@
     <div class="address">
         <label for="name">: العنوان تفصيليا</label><br/>    
     
-        <input  class="add" type="text" name="الاسم" id="الاسم" placeholder="عنوان  تفصيليا "/><br>
+        <input  class="add" type="text" name="address" id="الاسم" placeholder="عنوان  تفصيليا "/><br>
     </div>
         <div class="form-row2">
             <div class="label-1">
                 <label for="name">: رقم المحمول</label><br/>    
-                <input   type="tel" name="number" id="" placeholder="رقم المحمول ">
+                <input   type="tel" name="phone_num" id="" placeholder="رقم المحمول ">
             </div> 
             <div>
                 <label for = "text">:المنطقه</label><br/>     
     
-                <input type = "text" name = "address" id = "address" placeholder = "المنطقه"><br/><br/>     
+                <input type = "text" name = "region" id = "address" placeholder = "المنطقه"><br/><br/>     
             </div>
             <div>
         <label for="text" >:المحافظه</label><br/>     
-        <select id="address" name="address">
+        <select id="address" name="governorate">
             <option value="القاهره">القاهره</option>
             <option value="الجيزه">الجيزه</option>
             <option value="القليوبيه">القليوبيه</option>
@@ -84,59 +88,63 @@
 <div class="number" >
 <label  for="number">: رقم العقار</label><br/>    
 
-<input type="number" name="number"  id="" placeholder="الرقم العقار"><br/><br/>
+<input type="number" name="block_number"  id="" placeholder="الرقم العقار"><br/><br/>
 </div>     
 <div >
 <label for = "name">:رقم محمول اخر</label><br/>     
 
-<input type = "name" name = "name" id = "name" placeholder ="الاسم بالكامل"/>
+<input type = "name" name = "phone_num2" id = "name" placeholder ="الاسم بالكامل"/>
 <br/><br/>   
 </div>  
 </div>
 
-    <div class="picature">
-        <div class="field">
-            <p>*عقد ملكيه البيت</p>
-            <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
-            <p>2: العدد الاقصى للملفات</p>
-            <p>3MP:الحجم الاقصى للملفات</p>
-            <div class="file">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
-                <p>اسحب الملف</p>
-                <p>او</p>
-                <input type="file" id="file" hidden>
-                <button>اضغط هنا</button>
-                
-            </div>
-        </div>
-        <div class="field">
-            <p>*صوره بطاقه المالك او وكيله</p>
-            <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
-            <p>2: العدد الاقصى للملفات</p>
-            <p>3MP:الحجم الاقصى للملفات</p>
-            <div class="file">
-                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
-                <p>اسحب الملف</p>
-                <p>او</p>
-                <input type="file" id="file" hidden>
-                <button>اضغط هنا</button>
-            </div>
+<div class="picature">
+    <div class="field">
+        <p>صوره بطاقه المالك او وكيله</p>
+        <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+        <p>2: العدد الاقصى للملفات</p>
+        <p>3MP:الحجم الاقصى للملفات</p>
+        <div class="file">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
+            <p>اسحب الملف</p>
+            <p>او</p>
+
+            <label class="custom_file-input" for="file-input1">        ادراج صورة      </label>
+            <input  hidden type="file" id="file-input1" name="image1" />
+
+            
         </div>
     </div>
+    <div class="field">
+        <p>عقد ملكيه البيت</p>
+        <p>PNF, JPEG,JPG: الملفات المسموح بيها</p> 
+        <p>2: العدد الاقصى للملفات</p>
+        <p>3MP:الحجم الاقصى للملفات</p>
+        <div class="file">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" class="FileUpload_file" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M384 121.941V128H256V0h6.059a24 24 0 0 1 16.97 7.029l97.941 97.941a24.002 24.002 0 0 1 7.03 16.971zM248 160c-13.2 0-24-10.8-24-24V0H24C10.745 0 0 10.745 0 24v464c0 13.255 10.745 24 24 24h336c13.255 0 24-10.745 24-24V160H248zm-135.455 16c26.51 0 48 21.49 48 48s-21.49 48-48 48-48-21.49-48-48 21.491-48 48-48zm208 240h-256l.485-48.485L104.545 328c4.686-4.686 11.799-4.201 16.485.485L160.545 368 264.06 264.485c4.686-4.686 12.284-4.686 16.971 0L320.545 304v112z"></path></svg>
+            <p>اسحب الملف</p>
+            <p>او</p>
+
+            <label class="custom_file-input" for="file-input2">         ادراج صورة          </label>
+            <input  hidden type="file" id="file-input2" name="image2"  />
+
+        </div>
+    </div>
+</div>
 
 <div class="form-row2">
     <div class="label-1">
         <label for="name">: اسم جهه الموافقه المصدره للقرار</label><br/>    
-        <input   type="text" name="name" id="" placeholder=" اسم جهة الموافقه المصدرة للقرار ">
+        <input   type="text" name="authority_name" id="" placeholder=" اسم جهة الموافقه المصدرة للقرار ">
     </div> 
     <div>
         <label for = "text">:جهة الموافقه</label><br/>     
 
-        <input type = "text" name = "address" id = "address" placeholder = "جهة الموافقه"><br/><br/>     
+        <input type = "text" name = "authority" id = "address" placeholder = "جهة الموافقه"><br/><br/>     
     </div>
     <div>
 <label for="text" >:نوع المنشأة</label><br/>     
-<select id="address" name="address" placeholder="نوع المنشأة">
+<select id="address" name="facility_type" placeholder="نوع المنشأة">
     <option value="مبنى سكنى">مبنى سكنى</option>
     <option value="مبنى سكنى">مبنى غير  سكنى </option>
 </select> 
@@ -147,21 +155,23 @@
     <div>
         <label for = "text">:صفه مقدم الطلب </label><br/>     
 
-        <input type = "text" name = "address" id = "address" placeholder = " صفه مقدم الطلب"><br/><br/>     
+        <input type = "text" name = "applicant" id = "address" placeholder = " صفه مقدم الطلب"><br/><br/>     
     </div>
     <div>
         <label for = "text">:رقم الضريبه </label><br/>     
 
-        <input type = "text" name = "address" id = "address" placeholder = " رقم الضريبه "><br/><br/>     
+        <input type = "text" name = "tax_number" id = "address" placeholder = " رقم الضريبه "><br/><br/>     
     </div>
 </div>
 <div class="location">
-    <div >
-        <div id="latt" ><label for="">latitude:</label></div>
+    <div>
+        <label for="id_latitude">Latitude:</label>
+        <input type="hidden" id="id_latitude" name="latitude">
         <span class="lat">null</span>
     </div>
-    <div class="longg">
-       <div> <label for="" id="">longitude:</label></div>
+    <div>
+        <label for="id_longitude">Longitude:</label>
+        <input type="hidden" id="id_longitude" name="longitude">
         <span class="long">null</span>
     </div>
 </div>
@@ -173,7 +183,7 @@
 </form>
 </div>
     <script src="https://js.arcgis.com/4.19/"></script>
-    <link rel="stylesheet" href="script2.js">
-<script src="js/script2.js"></script>
+    <link rel="stylesheet" href="{%static 'script2.js'%}">
+<script src="{%static 'js/script2.js'%}"></script>
 </body>
 </html>

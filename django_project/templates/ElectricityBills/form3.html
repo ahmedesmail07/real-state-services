@@ -1,10 +1,11 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form3.css">
+    <link rel="stylesheet" href="{%static 'css/form3.css'%}">
     <title>Document</title>
 </head>
   <body>  
@@ -12,6 +13,9 @@
 <div class="container">    
       <h2 class="title">دفع الفواتير</h2><br/> 
         <form action="" method="post">  
+          {% csrf_token %}
+          {{ form.as_p }}
+
     <div class="ng">
         <div class="form-row2">
             <div class="label-1">
@@ -21,7 +25,7 @@
           
                <div>
          <label for="text" >: الشركه</label><br/>     
-         <select id="address" name="address">
+         <select id="address" name="company">
             <option value="شمال القاهره">شمال القاهره</option>
             <option value="جنوب القاهره">جنوب القاهره</option>
             <option value="جنوب الدلتا">جنوب الدلتا</option>
@@ -39,7 +43,7 @@
 <div class="address">
     <label for="name">: تعليقات</label><br/>    
    
-    <input  class="add" type="text" name="الاسم" id="الاسم" placeholder="  تعليقات "/><br>
+    <input  class="add" type="text" name="comments" id="الاسم" placeholder="  تعليقات "/><br>
    </div>
 
    <div>
@@ -48,5 +52,5 @@
 </div>
         </form>
     </div>
-    <script src="main.js"></script>
+    <script src="{%static 'main.js'%}"></script>
   </body>
