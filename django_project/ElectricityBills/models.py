@@ -78,6 +78,8 @@ class LicenseRequest(models.Model):
     longitude = models.DecimalField(max_digits=9, decimal_places=6 ,null=True)
     tax_number = models.IntegerField()
     applicant = models.CharField(max_length=30)
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -86,12 +88,12 @@ class LicenseRequest(models.Model):
 class LicenseRequestForm(forms.ModelForm):
     class Meta:
         model = LicenseRequest
-        fields = ['name','national_ID','national_ID2','address','governorate','phone_num2','phone_num','block_number','image1','image2','facility_type','authority','authority_name','tax_number','applicant',]
-
+        fields = "__all__"
 class ReconciliationRequest(models.Model):
     image1 = models.ImageField(upload_to='static/images')
     image2 = models.ImageField(upload_to='static/images')
-
+    latitude = models.FloatField(null=True, blank=True)
+    longitude = models.FloatField(null=True, blank=True)
 
 class ReconciliationRequestForm(forms.ModelForm):
     class Meta:
