@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,19 +9,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
     <title>Degital services in real state</title>
 </head>
 <body>
     <div class="loader"></div>
     <!-- header section starts -->
     <header class="header" dir="rtl">
-        <a href="index.html" class="logo">تصفح <span>خدماتنا</span></a>
+        <a href="{%url 'index'%}" class="logo">تصفح <span>خدماتنا</span></a>
         <nav class="navbar">
-            <a href="index.html">الرئيسية</a>
-            <a href="about.html">المزيد عنا</a>
-            <a href="#services" class="active">خدماتنا</a>
-            <a href="contact.html">تواصل معنا</a>
+            <a href="{% url 'index' %}" class="link">الرئيسية</a>
+<a href="{% url 'service' %}" class="link">خدماتنا</a>
+<a href="{% url 'contact' %}" class="link">تواصل معنا</a>
+<a href="{% url 'about' %}" class="link">المزيد عنا</a>
+
         </nav>
         <div class="icons" dir="rtl">
             <div id="menu-btn" class="fas fa-bars"></div>
@@ -91,7 +93,7 @@
     </div>
     <section class="heading-link"  dir="rtl">
         <h3>المزيد</h3>
-        <p><a href="../../../index.html">الرئيسية</a>/الخدمات</p>
+        <p><a href="{%url 'index'%}">الرئيسية</a>/الخدمات</p>
     </section>
     <!-- contact section ends -->
     <!-- services section starts -->
@@ -109,37 +111,37 @@
                         <div class="box-container active">
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/1253826_0.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/1253826_0.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تقديم على عداد كهرباء</h3>
                                     <p>تقدر تقدم على عداد من خلال البطاقة القومية فقط</p>
-                                    <a href="form2.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form2' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/20200426104443023.jpg" alt="">
+                                    <img src="{%static 'images/elec-img/20200426104443023.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>ادخال قراءة عداد كهرباء</h3>
                                     <p>سهولة ادخال قراءة عداد بيتك بنفسك كل شهر</p>
-                                    <a href="form1.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form1' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png" alt="">
+                                    <img src="{%static 'images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تحصيل فواتير كهرباء</h3>
                                 <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
-                                <a href="form3.html" class="btn">المزيد</a>
-                                </div>
+                                <a href="{% url 'form3' %}" class="btn">المزيد</a>
+                            </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/images.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/images.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
@@ -149,7 +151,7 @@
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/maxresdefault.jpg" alt="">
+                                    <img src="{%static 'images/elec-img/maxresdefault.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3> خطوات التسجيل</h3>
@@ -163,37 +165,37 @@
                         <div class="box-container">
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/gas-img/pt35946589-propane_lpg_gas_hose_pipe_dn13_ss304_pvc_fibre_reinforced_hose.jpg" alt="">
+                                    <img src="{%static 'images/gas-img/pt35946589-propane_lpg_gas_hose_pipe_dn13_ss304_pvc_fibre_reinforced_hose.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تقديم على عداد غاز</h3>
                                     <p>تقدر تقدم على عداد من خلال البطاقة القومية فقط</p>
-                                    <a href="form6.html" class="btn">المزيد</a>
+                                    <a href="{%url 'form6'%}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/gas-img/istockphoto-627871386-612x612.jpg" alt="">
+                                    <img src="{%static 'images/gas-img/istockphoto-627871386-612x612.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>ادخال قراءة عداد غاز</h3>
                                     <p>سهولة ادخال قراءة عداد بيتك بنفسك كل شهر</p>
-                                    <a href="form7.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form7' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/gas-img/images.jpeg" alt="">
+                                    <img src="{%static 'images/gas-img/images.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تحصيل فواتير الغاز</h3>
                                 <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
-                                <a href="form8.html" class="btn">المزيد</a>
-                                </div>
+                                <a href="{% url 'form8' %}" class="btn">المزيد</a>
+                            </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/images.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/images.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
@@ -203,7 +205,7 @@
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/maxresdefault.jpg" alt="">
+                                    <img src="{%static 'images/elec-img/maxresdefault.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3> خطوات التسجيل</h3>
@@ -217,37 +219,37 @@
                         <div class="box-container" >
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/1253826_0.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/1253826_0.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تقديم على عداد المياه</h3>
                                     <p>تقدر تقدم على عداد من خلال البطاقة القومية فقط</p>
-                                    <a href="form9.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form9' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/20200426104443023.jpg" alt="">
+                                    <img src="{%static 'images/elec-img/20200426104443023.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>ادخال قراءة عداد المياه</h3>
                                     <p>سهولة ادخال قراءة عداد بيتك بنفسك كل شهر</p>
-                                    <a href="form10.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form10' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png" alt="">
+                                    <img src="{%static 'images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تحصيل فواتير</h3>
                                 <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
-                                <a href="form11.html" class="btn">المزيد</a>
-                                </div>
+                                <a href="{% url 'form11' %}" class="btn">المزيد</a>
+                            </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/images.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/images.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
@@ -257,7 +259,7 @@
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/maxresdefault.jpg" alt="">
+                                    <img src="{%static 'images/elec-img/maxresdefault.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3> خطوات التسجيل</h3>
@@ -271,28 +273,28 @@
                         <div class="box-container" >
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/1253826_0.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/1253826_0.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تراخيص البناء</h3>
                                     <p>تقدر تقدم على  رخصه بناء</p>
-                                    <a href="form12.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form12' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/uu.jpg" alt="">
+                                    <img src="{%static 'images/uu.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تصالح البناء</h3>
                                     <p>سهوله استخراج اوراق التصالح</p>
-                                    <a href="form13.html" class="btn">المزيد</a>
+                                    <a href="{% url 'form13' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
                         
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/images.jpeg" alt="">
+                                    <img src="{%static 'images/elec-img/images.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
@@ -302,7 +304,7 @@
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="images/elec-img/maxresdefault.jpg" alt="">
+                                    <img src="{%static 'images/elec-img/maxresdefault.jpg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3> خطوات التسجيل</h3>
@@ -332,19 +334,19 @@
 
             <div class="box">
                 <h3>روابط سريعة</h3>
-                <a href="#home" class="link">الرئيسية</a>
-                <a href="#about" class="link">المزيد عنا</a>
-                <a href="#services" class="link">خدماتنا</a>
-                <a href="contact.html" class="link">تواصل معنا</a>
+                <a href="{% url 'index' %}" class="link">الرئيسية</a>
+                <a href="{% url 'about' %}" class="link">المزيد عنا</a>
+                <a href="{% url 'service' %}" class="link">خدماتنا</a>
+                <a href="{% url 'contact' %}" class="link">تواصل معنا</a>
             </div>
 
             <div class="box">
                 <h3>روابط سريعة</h3>
-                <a href="#" class="link">مركز المساعدة</a>
-                <a href="#" class="link">اسال اسئلة</a>
-                <a href="#" class="link">ارسل رأيك</a>
-                <a href="#" class="link">سياسة خاصة</a>
-                <a href="#" class="link">شروط الاستخدام</a>
+                <a href="" class="link">مركز المساعدة</a>
+                <a href="" class="link">اسال اسئلة</a>
+                <a href="" class="link">ارسل رأيك</a>
+                <a href="" class="link">سياسة خاصة</a>
+                <a href="" class="link">شروط الاستخدام</a>
             </div>
             <div class="box">
                 <h3>اشترك</h3>
@@ -360,6 +362,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="{%static 'js/script.js'%}"></script>
 </body>
 </html>

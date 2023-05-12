@@ -92,7 +92,8 @@ class ReconciliationRequest(models.Model):
     image1 = models.ImageField(upload_to='static/images')
     image2 = models.ImageField(upload_to='static/images')
 
+
 class ReconciliationRequestForm(forms.ModelForm):
     class Meta:
         model = ReconciliationRequest
-        fields = '__all__'
+        fields = "__all__"

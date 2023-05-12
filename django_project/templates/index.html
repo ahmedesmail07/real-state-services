@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
     <title>Degital services in real state</title>
 </head>
 <body>
@@ -17,10 +18,11 @@
     <header class="header" dir="rtl">
         <a href="index.html" class="logo">تصفح <span>خدماتنا</span></a>
         <nav class="navbar">
-            <a href="index.html" class="active">الرئيسية</a>
-            <a href="about.html">المزيد عنا</a>
-            <a href="services.html">خدماتنا</a>
-            <a href="contact.html">تواصل معنا</a>
+<a href="{% url 'index' %}" class="link">الرئيسية</a>
+<a href="{% url 'service' %}" class="link">خدماتنا</a>
+<a href="{% url 'contact' %}" class="link">تواصل معنا</a>
+<a href="{% url 'about' %}" class="link">المزيد عنا</a>
+
         </nav>
         <div class="icons" dir="rtl">
             <div id="menu-btn" class="fas fa-bars"></div>
@@ -94,28 +96,28 @@
     <section class="home" id="home">
         <div class="swiper home-slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide slide" style="background: url(images/background.jpg);">
+                <div class="swiper-slide slide" style="background: url({%static 'images/background.jpg'%});">
                     <div class="content" dir="rtl">
                         <h3>الخدمات الرقمية  للعقارات</h3>
                         <p>نهوض التكنولوجيا وتطور الأساليب الرقمية من أفضل الوسائل التي تساعد في انجاز المهام المتعلقة بالمصالح الخاصة والعامة للمواطنين في تنفيذ احتيجاتهم </p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
-                <div class="swiper-slide slide" style="background: url(images/78.jpg);">
+                <div class="swiper-slide slide" style="background: url({%static 'images/78.jpg'%});">
                     <div class="content" dir="rtl">
                         <h3>  خدماتنا رقمية</h3>
                         <p>جميع خدمات الكهرباء حيث يمكنك إتمام جميع العمليات الخاصة بشركة الكهرباء من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
-                <div class="swiper-slide slide" style="background: url(images/united_states.jpg);">
+                <div class="swiper-slide slide" style="background: url({%static 'images/united_states.jpg'%});">
                     <div class="content" dir="rtl">
                         <h3>   استثمار الرقميات لانجاز طلباتك</h3>
                         <p>جميع خدمات تراخيص البناء حيث يمكنك إتمام جميع العمليات الخاصة باتراخيص البناء من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
-                <div class="swiper-slide slide" style="background: url(images/bulidjpg.jpg);">
+                <div class="swiper-slide slide" style="background: url({%static 'images/bulidjpg.jpg'%});">
                     <div class="content" dir="rtl">
                         <h3>تقديم الخدمات للمواطنين بسهولة</h3>
                         <p>جميع خدمات المياه حيث يمكنك إتمام جميع العمليات الخاصة بشركة المياه من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
@@ -133,7 +135,7 @@
         <h3 class="heading">المزيد  <span>عنا</span></h3>
         <div class="row">
             <div class="image" data-aos="fade-left" data-aos-offset="200" data-aos-duration="500">
-                <video src="images/about-vid.mp4" autoplay loop></video>
+                <video src="{%static 'images/about-vid.mp4'%}" autoplay loop></video>
                 
             </div>
             <div class="content" data-aos="fade-right" data-aos-offset="200" data-aos-duration="500">
@@ -144,7 +146,8 @@
                     <p>حيث أن الهدف من المشروع هو تسهيل الخدمات للمواطنين في مجال العقارات والمباني ، حيث تهدف الدولة إلى
                         استخدام تقنية المعلومات لتقديم الخدمات المطلوبة لمراحل البناء والتجهيز ، ومن خلال موقعنا الإلكتروني
                         جميع العقارات يمكن توفير الطلبات وتقديمها للمواطنين في أي مكان بالسرعة والكفاءة المطلوبة.</p>
-                <a href="about.html" class="btn">اعرف المزيد</a>
+                <a href="{% url 'about' %}" class="btn">اعرف المزيد</a>
+
             </div>
         </div>
     </section>
@@ -195,12 +198,12 @@
     <section class="logo-container">
         <div class="swiper logo-slider">
             <div class="swiper-wrapper">
-                <div class="swiper-slide slide"><img src="images/client-logo-1.png" alt=""></div>
-                <div class="swiper-slide slide"><img src="images/client-logo-2.png" alt=""></div>
-                <div class="swiper-slide slide"><img src="images/client-logo-3.png" alt=""></div>
-                <div class="swiper-slide slide"><img src="images/client-logo-4.png" alt=""></div>
-                <div class="swiper-slide slide"><img src="images/client-logo-5.png" alt=""></div>
-                <div class="swiper-slide slide"><img src="images/client-logo-6.png" alt=""></div>
+                <div class="swiper-slide slide"><img src="{%static 'images/client-logo-1.png'%}" alt=""></div>
+                <div class="swiper-slide slide"><img src="{%static 'images/client-logo-2.png'%}" alt=""></div>
+                <div class="swiper-slide slide"><img src="{%static 'images/client-logo-3.png'%}" alt=""></div>
+                <div class="swiper-slide slide"><img src="{%static 'images/client-logo-4.png'%}" alt=""></div>
+                <div class="swiper-slide slide"><img src="{%static 'images/client-logo-5.png'%}" alt=""></div>
+                <div class="swiper-slide slide"><img src="{%static 'images/client-logo-6.png'%}" alt=""></div>
             </div>
         </div>
     </section>
@@ -221,10 +224,11 @@
 
             <div class="box">
                 <h3>روابط سريعة</h3>
-                <a href="index.html" class="link">الرئيسية</a>
-                <a href="about.html" class="link">المزيد عنا</a>
-                <a href="services.html" class="link">خدماتنا</a>
-                <a href="contact.html" class="link">تواصل معنا</a>
+                <a href="{% url 'index' %}" class="link">الرئيسية</a>
+                <a href="{% url 'about' %}" class="link">المزيد عنا</a>
+                <a href="{% url 'service' %}" class="link">خدماتنا</a>
+                <a href="{% url 'contact' %}" class="link">تواصل معنا</a>
+                
             </div>
 
             <div class="box">
@@ -249,6 +253,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/script.js"></script>
+    <script src="{%static 'js/script.js'%}"></script>
 </body>
 </html>
