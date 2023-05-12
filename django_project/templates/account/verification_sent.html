@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+
+{% block content %}
+    <div>
+    <h1 align = 'center'>{% trans "يجب تأكيد الإيميل قبل الاستمرارية" %}</h1>
+
+    <p align = 'center'>{% blocktrans %}لقد قمنا بإرسال الإيميل الخاص بتأكيد حسابك الإلكتروني هذه الخطوة إجبارية لن تتمكن من الإستمرار إذا لم تقم بتأكيد حسابك. القي نظرة على الإيميل الخاص بك ثم اضغط على الرابط المرفق للتحويل الي صفحة تأكيد حسابك{% endblocktrans %}</p>
+    </div>
+    
+
+{% endblock %}

@@ -41,7 +41,15 @@ INSTALLED_APPS = [
     "ElectricityBills",
     "GasBills",
     "WaterBills",
+    # Third party Apps
+    "allauth",
+    'allauth.account',
+    'allauth.socialaccount',
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -67,11 +75,21 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                # ALL AUTH REQUESTS
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+AUTHENTICATION_BACKENDS = [
 
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
@@ -133,3 +151,18 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+SITE_ID = 1
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+LOGIN_ON_EMAIL_CONFIRMATION = True
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_FROM = "kickfundingapp@gmail.com"
+EMAIL_HOST_USER = "apikey"
+EMAIL_HOST_PASSWORD = "SG.INQQHB4eTTmNNPzoyoN9kA.XbHXTeskI-7o9KujIYHwnU05P2mjOomUdVmk9NPaXXk"
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+ACCOUNT_AUTHENTICATION_METHOD = "username_email"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
+LOGIN_REDIRECT_URL = 'index'

@@ -1,5 +1,6 @@
+{% extends "_base.html" %}
 {%load static%}
-
+{%block content%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,21 +18,21 @@
     <div class="loader"></div>
     <!-- header section starts -->
     <header class="header" dir="rtl">
-        <a href="index.html" class="logo">تصفح <span>خدماتنا</span></a>
+        <!-- <a href="index.html" class="logo">تصفح <span>خدماتنا</span></a>
         <nav class="navbar">
-            <a href="index.html">الرئيسية</a>
-            <a href="about.html" class="active">المزيد عنا</a>
-            <a href="services.html">خدماتنا</a>
-            <a href="contact.html">تواصل معنا</a>
-        </nav>
-        <div class="icons" dir="rtl">
+            <a href="{% url 'index' %}">الرئيسية</a>
+            <a href="{% url 'about' %}" class="active">المزيد عنا</a>
+            <a href="{% url 'services' %}">خدماتنا</a>
+            <a href="{% url 'contact' %}">تواصل معنا</a>
+        </nav> -->
+        <!-- <div class="icons" dir="rtl">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="info-btn" class="fas fa-info-circle"></div>
             <div id="search-btn" class="fas fa-search"></div>
             <div id="login-btn" class="fas fa-user"></div>
-        </div>
+        </div> -->
         <!-- login form starts -->
-        <form action="" class="login-form" dir="rtl">
+        <!-- <form action="" class="login-form" dir="rtl">
             <h3>تسجيل الدخول</h3>
             <input type="email" placeholder="الايميل الالكترونى" class="box">
             <input type="password" placeholder="ادخل كلمة المرور" class="box">
@@ -42,9 +43,9 @@
             </div>
             <input type="submit" value="تسجيل الدخول" class="btn">
             <p>لا تمتلك حساب <a href="#" id="new-user">سجل حساب جديد!</a></p>    
-        </form>
+        </form> -->
         <!-- login form ends -->
-        <form action="" class="register-form" dir="rtl">
+        <!-- <form action="" class="register-form" dir="rtl">
             <h3>تسجيل حساب جديد</h3>
             <input type="text" placeholder="الاسم ثلاثى" class="box">
             <input type="email" placeholder="الايميل الالكترونى" class="box">
@@ -52,7 +53,7 @@
             <input type="password" placeholder="تاكيد  كلمة المرور" class="box">
             <input type="submit" value="تسجيل حساب" class="btn">
             <p>امتلك حساب <a href="#" id="login-now">سجل حساب !</a></p>    
-        </form>
+        </form> -->
     <!-- search form starts -->
     <form action="" id="search-form" dir="rtl">
         <input type="search" id="search-box" placeholder="ابحث عن الخدمات هنا...">
@@ -93,7 +94,7 @@
     </div>
     <section class="heading-link"  dir="rtl">
         <h3>المزيد</h3>
-        <p><a href="../../../index.html">الرئيسية</a>/المزيد</p>
+        <p><a href="{% url 'index' %}">الرئيسية</a>/المزيد</p>
     </section>
     <!-- contact section ends -->
     <section class="about-elec" dir="rtl">
@@ -158,10 +159,10 @@
 
             <div class="box">
                 <h3>روابط سريعة</h3>
-                <a href="index.html" class="link">الرئيسية</a>
-                <a href="about.html" class="link">المزيد عنا</a>
-                <a href="services.html" class="link">خدماتنا</a>
-                <a href="contact.html" class="link">تواصل معنا</a>
+                <a href="{% url 'index' %}" class="link">الرئيسية</a>
+                <a href="{% url 'about' %}" class="link">المزيد عنا</a>
+                <a href="{% url 'services' %}" class="link">خدماتنا</a>
+                <a href="{% url 'contact' %}" class="link">تواصل معنا</a>
             </div>
 
             <div class="box">
@@ -189,3 +190,4 @@
     <script src="../js/script.js"></script>
 </body>
 </html>
+{%endblock content%}

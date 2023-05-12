@@ -3,6 +3,7 @@
 # Ignore database files
 *.sqlite3
 *.db
+db.sqlite3
 
 # Ignore compiled Python files
 _pycache_/

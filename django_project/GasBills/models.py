@@ -42,8 +42,7 @@ class NaturalGasReading(models.Model):
     last_reading= models.CharField(max_length=300, blank=False, null=False)
     last_reading_date = models.DateField()
     current_reading = models.CharField(max_length=300)
-    counter_image = models.ImageField(
-       upload_to='static/images')
+    counter_image = models.ImageField(upload_to='static/images')
     origin_type = models.CharField(max_length=100, 
     choices=FACILITY_TYPES_CHOICES,default='برجاء تحديد المنشأ')
 
