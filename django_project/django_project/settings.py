@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "ElectricityBills",
     "GasBills",
     "WaterBills",
+    "room",
+    "channels",
     # Third party Apps
     "allauth",
     'allauth.account',
@@ -62,6 +64,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "django_project.urls"
+
 
 TEMPLATES = [
     {
@@ -97,6 +100,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 WSGI_APPLICATION = "django_project.wsgi.application"
+
+ASGI_APPLICATION = 'django_project.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
 
 
 # Database

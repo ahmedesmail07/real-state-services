@@ -11,7 +11,8 @@ urlpatterns = [
     path("index/", views.index, name='index'),
     path("contact/", views.contact, name='contact'),
     path("about/", views.about, name='about'),
-    path("accounts/", include('allauth.urls'))
+    path("accounts/", include('allauth.urls')),
+    path('rooms/', include('room.urls')),
 ]
 """
 END POINTS OF ALL AUTH :
