@@ -2,7 +2,7 @@
 <head>chat room </head>
 
 <body>
-    <h1>lets Chat</h1>
+    <h1>{{room.name}}</h1>
     <form id="form">
         <input type = "text" name = "message"/>
 
@@ -11,18 +11,20 @@
 
     </div>
     <script>
-        let url = 'ws://' + window.location.host + '/ws/socket-server/room_a/';
-        const chatSocket = new WebSocket(url);
+        const chatSocket = new WebSocket(
+    'ws://' + window.location.host +
+    '/ws/socket-server/room_' + "{{room.name}}" + '/'
+);
         chatSocket.onmessage = function(e){
             let data = JSON.parse(e.data);
             console.log("Data:", data);
-
+           
             if(data.type === 'chat'){
                 let messages = document.getElementById('messages')
                 messages.insertAdjacentHTML('beforeend',`
                 <div>
                     <p>
-                ${data.message}
+                        ${data.message}
                     </p>
                 </div>
                 `)
@@ -38,7 +40,7 @@
             }))
             form.reset()
         })
-
+        
     </script>
     
 </body>

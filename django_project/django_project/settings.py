@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
 ]
 
+ASGI_APPLICATION = 'django_project.asgi.application'
+
 SITE_ID = 1
 
 MIDDLEWARE = [
