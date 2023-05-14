@@ -8,15 +8,12 @@ from django.contrib.auth.models import User
 class ChatConsumer(WebsocketConsumer):
 
     def connect(self):
-        # get the user's username address from the request
-        username = self.scope["user"].username
-
-        # use the username address as the room name
-        self.room_group_name = f"room_{username}"
+        self.room_name = self.scope['url_route']['kwargs']['room_name']
+        self.room_group_name = f'room_{self.room_name}'
 
         # look up the room in the database
         try:
-            room = Room.objects.get(name=username)
+            room = Room.objects.get(name=self.room_name)
         except Room.DoesNotExist:
             # if the room doesn't exist, return an error message
             self.close(code=4404)
