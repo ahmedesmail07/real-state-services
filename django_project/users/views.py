@@ -8,10 +8,6 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render
-from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
-from django.shortcuts import render 
 from .forms import ExtendedUserCreationForm
 
 def newsignup(request):
@@ -45,6 +41,8 @@ def newsignup(request):
     
     return render(request, 'signup_pop.html', {"form": form})
 
+from django.contrib.auth.forms import AuthenticationForm
+from .forms import ExtendedUserCreationForm
 
 def newlogin(request):
     if request.method == "POST":
@@ -67,39 +65,7 @@ def newlogin(request):
     return render(request, 'login_popup.html', {'form': form})
 
 
-def LoginUser(request):
-    if request.method == "POST":
-        username = request.POST.get('username')
-        password = request.POST.get('username')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            # Redirect to a success page or wherever you want
-            return redirect('/services')
-        else:
-            messages.error(request, "Enter Your Data Correctly")
-
-    # Add a default response for GET requests or when authentication fails
-    return render(request, 'index.html')
-
-
 def LogoutUser(request):
     logout(request)
     request.user = None
     return HttpResponseRedirect('index.html')
-
-def login_view(request):
-    if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            # Redirect to a success page or wherever you want
-            return redirect('accounts/login/')
-        else:
-            # Handle invalid login credentials
-            return redirect('accounts/login/')
-    else:
-        # Handle GET request or render the form
-        return render(request, 'login.html')

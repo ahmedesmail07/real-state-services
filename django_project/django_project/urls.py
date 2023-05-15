@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from account.views import newsignup , newlogin
+from users.views import newsignup , newlogin
 from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -15,8 +15,9 @@ urlpatterns = [
     path("about/", views.about, name='about'),
     path("accounts/", include('allauth.urls')),
     path('chat/', include('room.urls')),
-    path("newsignup/",newsignup),
-    path("newlogin/",newlogin)
+    path("newsignup/",newsignup), 
+    path("newlogin/",newlogin,name='newlogin'),
+    path("users/",include("users.urls"))
 ]
 """
 END POINTS OF ALL AUTH :

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "WaterBills",
     "room",
     "channels",
+    "users",
     # Third party Apps
     "allauth",
     'allauth.account',
@@ -179,5 +180,7 @@ ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL = 'index'
 AUTHENTICATION_BACKENDS = [
-    "account.emailLogin.Email_Or_Username",
+    'users.backends.EmailOrUsernameModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
+# AUTH_USER_MODEL = 'users.CustomUser'
