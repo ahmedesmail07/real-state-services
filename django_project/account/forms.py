@@ -6,3 +6,4 @@ class ExtendedUserCreationForm(UserCreationForm):
     full_name = forms.CharField(required=True,max_length=300)
     class Meta(UserCreationForm.Meta):
         fields = UserCreationForm.Meta.fields + ('full_name','email',)
+

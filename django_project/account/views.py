@@ -1,5 +1,3 @@
-from math import log
-import re
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
@@ -8,7 +6,12 @@ from django.views.decorators.cache import cache_control
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-    
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render 
 from .forms import ExtendedUserCreationForm
 
 def newsignup(request):
@@ -43,21 +46,32 @@ def newsignup(request):
     return render(request, 'signup_pop.html', {"form": form})
 
 
-# Login Function If I Use it for preventing him from seeing containt just only if he logedin
+def newlogin(request):
+    if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']  # Retrieve email from the 'username' field
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('services') 
+            else:
+                return render(request, 'login_popup.html', {
+                    'form': form,
+                    'error': 'Invalid email or password.',
+                })
+    else:
+        form = AuthenticationForm()
 
+    return render(request, 'login_popup.html', {'form': form})
 
-# def Login(request):
-#     if request.user.is_authenticated:
-#         return render(request, "services.html")
-#     else:
-#         messages.info(request, "Please Login To Access This Page")
-#         HttpResponseRedirect('index.html')
 
 def LoginUser(request):
     if request.method == "POST":
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        user = authenticate(request, email=email, password=password)
+        username = request.POST.get('username')
+        password = request.POST.get('username')
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             # Redirect to a success page or wherever you want
@@ -76,9 +90,9 @@ def LogoutUser(request):
 
 def login_view(request):
     if request.method == 'POST':
-        email = request.POST.get('email')
+        username = request.POST.get('username')
         password = request.POST.get('password')
-        user = authenticate(request, email=email, password=password)
+        user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             # Redirect to a success page or wherever you want

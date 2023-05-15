@@ -168,8 +168,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-LOGIN_ON_EMAIL_CONFIRMATION = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_FROM = "kickfundingapp@gmail.com"
 EMAIL_HOST_USER = "apikey"
@@ -179,3 +178,6 @@ EMAIL_USE_TLS = True
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL = 'index'
+AUTHENTICATION_BACKENDS = [
+    "account.emailLogin.Email_Or_Username",
+]
