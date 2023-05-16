@@ -5,8 +5,8 @@
 <h1>Log Out</h1>
 <p>هل أنت متأكد أنك تريد تسجيل الخروج ؟</p>
 <form method="post" action="{% url 'account_logout' %}">
-{% csrf_token %}
-{{ form|crispy }}
-<button class="btn btn-danger" type="submit">اضغط هنا لتسجيل الخروج</button>
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button class="btn btn-danger" type="submit">اضغط هنا لتسجيل الخروج</button>
 </form>
 {% endblock content %}

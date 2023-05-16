@@ -1,17 +1,19 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
     <title>Degital services in real state</title>
 </head>
+
 <body>
     <div class="loader"></div>
     <!-- header section starts -->
@@ -19,16 +21,23 @@
         <a href="{%url 'index'%}" class="logo">تصفح <span>خدماتنا</span></a>
         <nav class="navbar">
             <a href="{% url 'index' %}" class="link">الرئيسية</a>
-<a href="{% url 'services' %}" class="link">خدماتنا</a>
-<a href="{% url 'contact' %}" class="link">تواصل معنا</a>
-<a href="{% url 'about' %}" class="link">المزيد عنا</a>
+            <a href="{% url 'services' %}" class="link">خدماتنا</a>
+            <a href="{% url 'contact' %}" class="link">تواصل معنا</a>
+            <a href="{% url 'about' %}" class="link">المزيد عنا</a>
 
         </nav>
         <div class="icons" dir="rtl">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="info-btn" class="fas fa-info-circle"></div>
             <div id="search-btn" class="fas fa-search"></div>
+            {%if user.is_authenticated%}
+            <a href="{% url 'account_logout' %}">
+                <div id="logout-btn" class="fa fa-sign-out fa-xl"></div>
+            </a>
+            {%else%}
             <div id="login-btn" class="fas fa-user"></div>
+            {%endif%}
+        </div>
         </div>
         <!-- login form starts -->
         <form action="" class="login-form" dir="rtl">
@@ -41,7 +50,7 @@
                 <a href="#">نسبت كلمة المرور?</a>
             </div>
             <input type="submit" value="تسجيل الدخول" class="btn">
-            <p>لا تمتلك حساب <a href="#" id="new-user">سجل حساب جديد!</a></p>    
+            <p>لا تمتلك حساب <a href="#" id="new-user">سجل حساب جديد!</a></p>
         </form>
         <!-- login form ends -->
         <form action="" class="register-form" dir="rtl">
@@ -51,19 +60,19 @@
             <input type="password" placeholder="ادخل كلمة المرور" class="box">
             <input type="password" placeholder="تاكيد  كلمة المرور" class="box">
             <input type="submit" value="تسجيل حساب" class="btn">
-            <p>امتلك حساب <a href="#" id="login-now">سجل حساب !</a></p>    
+            <p>امتلك حساب <a href="#" id="login-now">سجل حساب !</a></p>
         </form>
-    <!-- search form starts -->
-    <form action="" id="search-form" dir="rtl">
-        <input type="search" id="search-box" placeholder="ابحث عن الخدمات هنا...">
-        <label for="search-box" class="fas fa-search"></label>
-    </form>
-    <!-- search form ends -->
-    <!-- scroll up button -->
-    <div class="scroll-up">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-    <div class="scroll-indicator"></div>
+        <!-- search form starts -->
+        <form action="" id="search-form" dir="rtl">
+            <input type="search" id="search-box" placeholder="ابحث عن الخدمات هنا...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+        <!-- search form ends -->
+        <!-- scroll up button -->
+        <div class="scroll-up">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+        <div class="scroll-indicator"></div>
     </header>
     <!-- header section ends -->
     <!-- contact section starts -->
@@ -91,7 +100,7 @@
         </div>
         <div id="close-btn" class="fas fa-times"></div>
     </div>
-    <section class="heading-link"  dir="rtl">
+    <section class="heading-link" dir="rtl">
         <h3>المزيد</h3>
         <p><a href="{%url 'index'%}">الرئيسية</a>/الخدمات</p>
     </section>
@@ -131,13 +140,14 @@
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="{%static 'images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png'%}" alt="">
+                                    <img src="{%static 'images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png'%}"
+                                        alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تحصيل فواتير كهرباء</h3>
-                                <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
-                                <a href="{% url 'form3' %}" class="btn">المزيد</a>
-                            </div>
+                                    <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
+                                    <a href="{% url 'form3' %}" class="btn">المزيد</a>
+                                </div>
                             </div>
                             <div class="box">
                                 <div class="image">
@@ -145,8 +155,8 @@
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
-                                <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
-                                <a href="#" class="btn">المزيد</a>
+                                    <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
+                                    <a href="#" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
@@ -165,7 +175,8 @@
                         <div class="box-container">
                             <div class="box">
                                 <div class="image">
-                                    <img src="{%static 'images/gas-img/pt35946589-propane_lpg_gas_hose_pipe_dn13_ss304_pvc_fibre_reinforced_hose.jpg'%}" alt="">
+                                    <img src="{%static 'images/gas-img/pt35946589-propane_lpg_gas_hose_pipe_dn13_ss304_pvc_fibre_reinforced_hose.jpg'%}"
+                                        alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تقديم على عداد غاز</h3>
@@ -189,9 +200,9 @@
                                 </div>
                                 <div class="content">
                                     <h3>تحصيل فواتير الغاز</h3>
-                                <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
-                                <a href="{% url 'form8' %}" class="btn">المزيد</a>
-                            </div>
+                                    <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
+                                    <a href="{% url 'form8' %}" class="btn">المزيد</a>
+                                </div>
                             </div>
                             <div class="box">
                                 <div class="image">
@@ -199,8 +210,8 @@
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
-                                <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
-                                <a href="#" class="btn">المزيد</a>
+                                    <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
+                                    <a href="#" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
@@ -216,7 +227,7 @@
                         </div>
                     </li>
                     <li id="contact">
-                        <div class="box-container" >
+                        <div class="box-container">
                             <div class="box">
                                 <div class="image">
                                     <img src="{%static 'images/elec-img/1253826_0.jpeg'%}" alt="">
@@ -239,13 +250,14 @@
                             </div>
                             <div class="box">
                                 <div class="image">
-                                    <img src="{%static 'images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png'%}" alt="">
+                                    <img src="{%static 'images/elec-img/ajJEqYcqOGMJ4cJUB6tG0VPy7lZK8pvP4Mg8jkrA.png'%}"
+                                        alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تحصيل فواتير</h3>
-                                <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
-                                <a href="{% url 'form11' %}" class="btn">المزيد</a>
-                            </div>
+                                    <p>تقدر تعرف سعر فاتورتك وتدفعها من خلال فورى اونلاين</p>
+                                    <a href="{% url 'form11' %}" class="btn">المزيد</a>
+                                </div>
                             </div>
                             <div class="box">
                                 <div class="image">
@@ -253,8 +265,8 @@
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
-                                <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
-                                <a href="#" class="btn">المزيد</a>
+                                    <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
+                                    <a href="#" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
@@ -270,14 +282,14 @@
                         </div>
                     </li>
                     <li id="settings">
-                        <div class="box-container" >
+                        <div class="box-container">
                             <div class="box">
                                 <div class="image">
                                     <img src="{%static 'images/elec-img/1253826_0.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>تراخيص البناء</h3>
-                                    <p>تقدر تقدم على  رخصه بناء</p>
+                                    <p>تقدر تقدم على رخصه بناء</p>
                                     <a href="{% url 'form12' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
@@ -291,15 +303,15 @@
                                     <a href="{% url 'form13' %}" class="btn">المزيد</a>
                                 </div>
                             </div>
-                        
+
                             <div class="box">
                                 <div class="image">
                                     <img src="{%static 'images/elec-img/images.jpeg'%}" alt="">
                                 </div>
                                 <div class="content">
                                     <h3>معرفة شروط التقديم</h3>
-                                <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
-                                <a href="#" class="btn">المزيد</a>
+                                    <p>تقدر تعرف كل شئ عن خدماتنا قبل الاشتراك</p>
+                                    <a href="#" class="btn">المزيد</a>
                                 </div>
                             </div>
                             <div class="box">
@@ -364,4 +376,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{%static 'js/script.js'%}"></script>
 </body>
+
 </html>

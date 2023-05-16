@@ -1,34 +1,42 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="{%static 'css/style.css'%}">
     <title>Degital services in real state</title>
 </head>
+
 <body>
     <div class="loader"></div>
     <!-- header section starts -->
     <header class="header" dir="rtl">
         <a href="index.html" class="logo">تصفح <span>خدماتنا</span></a>
         <nav class="navbar">
-<a href="{% url 'index' %}" class="link">الرئيسية</a>
-<a href="{% url 'services' %}" class="link">خدماتنا</a>
-<a href="{% url 'contact' %}" class="link">تواصل معنا</a>
-<a href="{% url 'about' %}" class="link">المزيد عنا</a>
+            <a href="{% url 'index' %}" class="link">الرئيسية</a>
+            <a href="{% url 'services' %}" class="link">خدماتنا</a>
+            <a href="{% url 'contact' %}" class="link">تواصل معنا</a>
+            <a href="{% url 'about' %}" class="link">المزيد عنا</a>
 
         </nav>
         <div class="icons" dir="rtl">
             <div id="menu-btn" class="fas fa-bars"></div>
             <div id="info-btn" class="fas fa-info-circle"></div>
             <div id="search-btn" class="fas fa-search"></div>
+            {%if user.is_authenticated%}
+            <a href="{% url 'account_logout' %}">
+                <div id="logout-btn" class="fa fa-sign-out fa-xl"></div>
+            </a>
+            {%else%}
             <div id="login-btn" class="fas fa-user"></div>
+            {%endif%}
         </div>
         <!-- login form starts -->
         <form action="" class="login-form" dir="rtl">
@@ -41,7 +49,7 @@
                 <a href="#">نسبت كلمة المرور?</a>
             </div>
             <input type="submit" value="تسجيل الدخول" class="btn">
-            <p>لا تمتلك حساب <a href="#" id="new-user">سجل حساب جديد!</a></p>    
+            <p>لا تمتلك حساب <a href="#" id="new-user">سجل حساب جديد!</a></p>
         </form>
         <!-- login form ends -->
         <form action="" class="register-form" dir="rtl">
@@ -51,15 +59,15 @@
             <input type="password" placeholder="ادخل كلمة المرور" class="box">
             <input type="password" placeholder="تاكيد  كلمة المرور" class="box">
             <input type="submit" value="تسجيل حساب" class="btn">
-            <p>امتلك حساب <a href="#" id="login-now">سجل حساب !</a></p>    
+            <p>امتلك حساب <a href="#" id="login-now">سجل حساب !</a></p>
         </form>
-    <!-- search form starts -->
-    <form action="" id="search-form" dir="rtl">
-        <input type="search" id="search-box" placeholder="ابحث عن الخدمات هنا...">
-        <label for="search-box" class="fas fa-search"></label>
-    </form>
-    <!-- search form ends -->
-    <div class="scroll-indicator"></div>
+        <!-- search form starts -->
+        <form action="" id="search-form" dir="rtl">
+            <input type="search" id="search-box" placeholder="ابحث عن الخدمات هنا...">
+            <label for="search-box" class="fas fa-search"></label>
+        </form>
+        <!-- search form ends -->
+        <div class="scroll-indicator"></div>
     </header>
     <!-- header section ends -->
     <!-- contact section starts -->
@@ -98,54 +106,58 @@
             <div class="swiper-wrapper">
                 <div class="swiper-slide slide" style="background: url({%static 'images/background.jpg'%});">
                     <div class="content" dir="rtl">
-                        <h3>الخدمات الرقمية  للعقارات</h3>
-                        <p>نهوض التكنولوجيا وتطور الأساليب الرقمية من أفضل الوسائل التي تساعد في انجاز المهام المتعلقة بالمصالح الخاصة والعامة للمواطنين في تنفيذ احتيجاتهم </p>
+                        <h3>الخدمات الرقمية للعقارات</h3>
+                        <p>نهوض التكنولوجيا وتطور الأساليب الرقمية من أفضل الوسائل التي تساعد في انجاز المهام المتعلقة
+                            بالمصالح الخاصة والعامة للمواطنين في تنفيذ احتيجاتهم </p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
                 <div class="swiper-slide slide" style="background: url({%static 'images/78.jpg'%});">
                     <div class="content" dir="rtl">
-                        <h3>  خدماتنا رقمية</h3>
-                        <p>جميع خدمات الكهرباء حيث يمكنك إتمام جميع العمليات الخاصة بشركة الكهرباء من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
+                        <h3> خدماتنا رقمية</h3>
+                        <p>جميع خدمات الكهرباء حيث يمكنك إتمام جميع العمليات الخاصة بشركة الكهرباء من مكانك دون الحاجة
+                            للتوجة إلى المصالح الحكومية</p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
                 <div class="swiper-slide slide" style="background: url({%static 'images/united_states.jpg'%});">
                     <div class="content" dir="rtl">
-                        <h3>   استثمار الرقميات لانجاز طلباتك</h3>
-                        <p>جميع خدمات تراخيص البناء حيث يمكنك إتمام جميع العمليات الخاصة باتراخيص البناء من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
+                        <h3> استثمار الرقميات لانجاز طلباتك</h3>
+                        <p>جميع خدمات تراخيص البناء حيث يمكنك إتمام جميع العمليات الخاصة باتراخيص البناء من مكانك دون
+                            الحاجة للتوجة إلى المصالح الحكومية</p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
                 <div class="swiper-slide slide" style="background: url({%static 'images/bulidjpg.jpg'%});">
                     <div class="content" dir="rtl">
                         <h3>تقديم الخدمات للمواطنين بسهولة</h3>
-                        <p>جميع خدمات المياه حيث يمكنك إتمام جميع العمليات الخاصة بشركة المياه من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
+                        <p>جميع خدمات المياه حيث يمكنك إتمام جميع العمليات الخاصة بشركة المياه من مكانك دون الحاجة
+                            للتوجة إلى المصالح الحكومية</p>
                         <a href="about.html" class="btn">اعرف المزيد</a>
                     </div>
                 </div>
             </div>
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
-        </div>   
+        </div>
     </section>
     <!-- home section ends -->
     <!-- about section starts -->
     <section class="about" id="about" dir="rtl">
-        <h3 class="heading">المزيد  <span>عنا</span></h3>
+        <h3 class="heading">المزيد <span>عنا</span></h3>
         <div class="row">
             <div class="image" data-aos="fade-left" data-aos-offset="200" data-aos-duration="500">
                 <video src="{%static 'images/about-vid.mp4'%}" autoplay loop></video>
-                
+
             </div>
             <div class="content" data-aos="fade-right" data-aos-offset="200" data-aos-duration="500">
                 <h3>سنقدم لك أفضل عمل تحلم به!</h3>
                 <p>في إطار الجهود الحثيثة التي تقوم بها الحكومه المصريه لتطوير وتحديث النظم المطبقة لخدمة العمل
                     البنائى من خلال
                     شبكة المعلومات وأيضا مواكبة أحدث النظم والتقنيات العالمية اللازمة لتطوير منظومة العمل البنائي</p>
-                    <p>حيث أن الهدف من المشروع هو تسهيل الخدمات للمواطنين في مجال العقارات والمباني ، حيث تهدف الدولة إلى
-                        استخدام تقنية المعلومات لتقديم الخدمات المطلوبة لمراحل البناء والتجهيز ، ومن خلال موقعنا الإلكتروني
-                        جميع العقارات يمكن توفير الطلبات وتقديمها للمواطنين في أي مكان بالسرعة والكفاءة المطلوبة.</p>
+                <p>حيث أن الهدف من المشروع هو تسهيل الخدمات للمواطنين في مجال العقارات والمباني ، حيث تهدف الدولة إلى
+                    استخدام تقنية المعلومات لتقديم الخدمات المطلوبة لمراحل البناء والتجهيز ، ومن خلال موقعنا الإلكتروني
+                    جميع العقارات يمكن توفير الطلبات وتقديمها للمواطنين في أي مكان بالسرعة والكفاءة المطلوبة.</p>
                 <a href="{% url 'about' %}" class="btn">اعرف المزيد</a>
 
             </div>
@@ -159,22 +171,26 @@
             <div class="box">
                 <i class="fas fa-gas-pump"></i>
                 <h3>خدمة الغاز الطبيعى</h3>
-                <p>الغاز الطبيعي هو أحد مصادر الطاقة البديلة عن النفط من المحروقات عالية الكفاءة قليلة الكلفة قليلة الانبعاثات الملوثة للبيئة. </p>
+                <p>الغاز الطبيعي هو أحد مصادر الطاقة البديلة عن النفط من المحروقات عالية الكفاءة قليلة الكلفة قليلة
+                    الانبعاثات الملوثة للبيئة. </p>
             </div>
             <div class="box">
                 <i class="fas fa-bolt"></i>
                 <h3>خدمة الكهرباء</h3>
-                <p>جميع خدمات الكهرباء حيث يمكنك إتمام جميع العمليات الخاصة بشركة الكهرباء من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
+                <p>جميع خدمات الكهرباء حيث يمكنك إتمام جميع العمليات الخاصة بشركة الكهرباء من مكانك دون الحاجة للتوجة
+                    إلى المصالح الحكومية</p>
             </div>
             <div class="box">
                 <i class="fas fa-house-chimney"></i>
                 <h3>خدمة البناء</h3>
-                <p>جميع خدمات تراخيص البناء حيث يمكنك إتمام جميع العمليات الخاصة باتراخيص البناء من مكانك دون الحاجة للتوجة إلى المصالح الحكومية</p>
+                <p>جميع خدمات تراخيص البناء حيث يمكنك إتمام جميع العمليات الخاصة باتراخيص البناء من مكانك دون الحاجة
+                    للتوجة إلى المصالح الحكومية</p>
             </div>
             <div class="box">
                 <i class="fas fa-glass-water"></i>
                 <h3>خدمة المياه</h3>
-                <p>جميع خدمات المياه حيث يمكنك إتمام جميع العمليات الخاصة بشركة المياه من مكانك دون الحاجة للتوجة إلى المصالح الحكومية.</p>
+                <p>جميع خدمات المياه حيث يمكنك إتمام جميع العمليات الخاصة بشركة المياه من مكانك دون الحاجة للتوجة إلى
+                    المصالح الحكومية.</p>
             </div>
         </div>
     </section>
@@ -183,12 +199,16 @@
     <section class="contact" id="contact" dir="rtl">
         <h3 class="heading">تواصل معنا</h3>
         <div class="row" data-aos="fade-up" data-aos-offset="200" data-aos-duration="800">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55027.121068168606!2d31.223441212591492!3d30.45891252359338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145875f6592ee989%3A0xa0f7a3872335c0ce!2z2KjZhtmH2KfYjCDZgtiz2YUg2KjZhtmH2KfYjCDYqNmG2YfYp9iMINin2YTZgtmE2YrZiNio2YrYqQ!5e0!3m2!1sar!2seg!4v1677937931216!5m2!1sar!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>            <form action="">
+            <iframe class="map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d55027.121068168606!2d31.223441212591492!3d30.45891252359338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145875f6592ee989%3A0xa0f7a3872335c0ce!2z2KjZhtmH2KfYjCDZgtiz2YUg2KjZhtmH2KfYjCDYqNmG2YfYp9iMINin2YTZgtmE2YrZiNio2YrYqQ!5e0!3m2!1sar!2seg!4v1677937931216!5m2!1sar!2seg"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <form action="">
                 <h3>ابقى على تواصل</h3>
                 <input type="text" placeholder="الاسم" class="box">
                 <input type="email" placeholder="الايميل" class="box">
                 <input type="number" placeholder="رقم الهاتف" class="box">
-                <textarea  cols="30" rows="10" class="box" placeholder="الرسالة"></textarea>
+                <textarea cols="30" rows="10" class="box" placeholder="الرسالة"></textarea>
                 <input type="submit" class="btn" value="ارسل الرسالة">
             </form>
         </div>
@@ -228,7 +248,7 @@
                 <a href="{% url 'about' %}" class="link">المزيد عنا</a>
                 <a href="{% url 'services' %}" class="link">خدماتنا</a>
                 <a href="{% url 'contact' %}" class="link">تواصل معنا</a>
-                
+
             </div>
 
             <div class="box">
@@ -255,4 +275,5 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="{%static 'js/script.js'%}"></script>
 </body>
+
 </html>
