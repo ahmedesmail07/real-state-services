@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     "crispy_forms",
     "crispy_bootstrap5",
+    'rest_framework',
 ]
 
 ASGI_APPLICATION = 'django_project.asgi.application'

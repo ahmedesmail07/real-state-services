@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponse
 
 from .models import  PaymentForm, MeterRequestForm,PayBillsForm,LicenseRequestForm,ReconciliationRequestForm
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .serializers import PaymentSerializer, MeterRequestSerializer, PayBillsSerializer, LicenseRequestSerializer, ReconciliationRequestSerializer
 # Create your views here.
 
 
@@ -75,3 +78,48 @@ def form5(request):
     else:
         form = ReconciliationRequestForm()
         return render(request, 'ElectricityBills/form5.html')
+
+# --------------------------------api views -----------------------------
+@api_view(['POST'])
+def create_payment(request):
+    serializer = PaymentSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(['POST'])
+def create_meter_request(request):
+    serializer = MeterRequestSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(['POST'])
+def create_pay_bills(request):
+    serializer = PayBillsSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(['POST'])
+def create_license_request(request):
+    serializer = LicenseRequestSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
+
+
+@api_view(['POST'])
+def create_reconciliation_request(request):
+    serializer = ReconciliationRequestSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)

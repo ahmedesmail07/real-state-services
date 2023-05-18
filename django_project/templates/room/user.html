@@ -4,8 +4,9 @@
 <body>
     <h1>lets Chat</h1>
     <form id="form">
-        <a href="{% url 'room' user.username  %}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700">Join chat for user</a>            </div>
-
+        {% if not user.is_superuser %}
+            <a href="{% url 'room' user.username %}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700">Join chat for user</a>
+        {% endif %}
     </form>
     <div id="messages">
 
