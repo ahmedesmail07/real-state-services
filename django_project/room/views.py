@@ -1,12 +1,12 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required,user_passes_test
-from .models import Room,Message
 from django.shortcuts import get_object_or_404, render
-# Create your views here.
+from django.contrib.auth.decorators import login_required, user_passes_test
+from .models import Room, Message
+
 @login_required
-def room(request,slug):
-    room = Room.objects.get(slug = slug)
-    messages = Message.objects.filter(room=room)[0:25]
+def room(request, slug):
+    print(slug)
+    room = get_object_or_404(Room, slug=slug)
+    messages = Message.objects.filter(room=room)[:25]
     return render(request, 'room/room.html', {'room': room, 'messages': messages})
 
 @login_required
@@ -18,5 +18,3 @@ def profile(request):
 def rooms(request):
     rooms = Room.objects.all()
     return render(request, 'room/rooms.html', {'rooms': rooms})
-
-
