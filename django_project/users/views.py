@@ -11,6 +11,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import ExtendedUserCreationForm
 from .serializers import CustomUserDetailsSerializer
 from dj_rest_auth.views import UserDetailsView
+
+
 def newsignup(request):
     if request.method == "POST":
         form = ExtendedUserCreationForm(request.POST)
