@@ -15,3 +15,4 @@ class CollectingWaterBillsSerializer(serializers.ModelSerializer):
     class Meta :
         model = CollectingWaterBills
         fields = '__all__'
+

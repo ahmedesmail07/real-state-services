@@ -5,9 +5,12 @@ from dj_rest_auth.views import (
     PasswordResetView,
     PasswordResetConfirmView,
 )
-from users.views import CustomUserDetailsView
-from users.views import newsignup , newlogin
+from users.views import *
+from users.api_views import *
 from . import views
+
+
+
 urlpatterns = [
     path("api/password/reset/", PasswordResetView.as_view(), name="rest_password_reset"),
     path(
@@ -16,6 +19,7 @@ urlpatterns = [
         name="password_reset_confirm",
     ),
     path('api/user/',CustomUserDetailsView().as_view(),name='profile'),
+    path('api/registration/',CustomRegisterView().as_view(),name='profile'),
     path("admin/", admin.site.urls),
     path("elec/", include('ElectricityBills.urls')),
     path("gas/", include('GasBills.urls')),
