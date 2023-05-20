@@ -9,7 +9,8 @@ from django.db import IntegrityError
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import ExtendedUserCreationForm
-
+from .serializers import CustomUserDetailsSerializer
+from dj_rest_auth.views import UserDetailsView
 def newsignup(request):
     if request.method == "POST":
         form = ExtendedUserCreationForm(request.POST)
@@ -69,3 +70,7 @@ def LogoutUser(request):
     logout(request)
     request.user = None
     return HttpResponseRedirect('index.html')
+
+
+class CustomUserDetailsView(UserDetailsView):
+    serializer_class = CustomUserDetailsSerializer

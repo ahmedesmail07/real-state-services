@@ -1,9 +1,21 @@
 from django.contrib import admin
 from django.urls import path, include
-
+from dj_rest_auth.views import (
+    PasswordChangeView,
+    PasswordResetView,
+    PasswordResetConfirmView,
+)
+from users.views import CustomUserDetailsView
 from users.views import newsignup , newlogin
 from . import views
 urlpatterns = [
+    path("api/password/reset/", PasswordResetView.as_view(), name="rest_password_reset"),
+    path(
+        "api/password/reset/confirm/<uidb64>/<token>/",
+        PasswordResetConfirmView.as_view(),
+        name="password_reset_confirm",
+    ),
+    path('api/user/',CustomUserDetailsView().as_view(),name='profile'),
     path("admin/", admin.site.urls),
     path("elec/", include('ElectricityBills.urls')),
     path("gas/", include('GasBills.urls')),
@@ -17,7 +29,10 @@ urlpatterns = [
     path('chat/', include('room.urls')),
     path("newsignup/",newsignup), 
     path("newlogin/",newlogin,name='newlogin'),
-    path("users/",include("users.urls"))
+    path("users/",include("users.urls")),
+    path("api/",include('dj_rest_auth.urls')),
+    path('api/registration/', include('dj_rest_auth.registration.urls')),
+    
 ]
 """
 END POINTS OF ALL AUTH :

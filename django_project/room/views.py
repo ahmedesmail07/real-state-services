@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth.decorators import permission_required
 from .models import Room, Message
+
 
 @login_required
 def room(request, slug):

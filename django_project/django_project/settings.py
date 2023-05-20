@@ -25,7 +25,8 @@ SECRET_KEY = "django-insecure-khgd7m^_+)wk8vg7a7m^7ee^z-j44hxu2sp4n@0gnhz4a!68n1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
 
 
 # Application definition
@@ -45,12 +46,16 @@ INSTALLED_APPS = [
     "channels",
     "users",
     # Third party Apps
-    "allauth",
-    'allauth.account',
-    'allauth.socialaccount',
     "crispy_forms",
     "crispy_bootstrap5",
     'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth.registration',
+    'allauth.socialaccount',  
 ]
 
 ASGI_APPLICATION = 'django_project.asgi.application'
@@ -169,14 +174,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 SITE_ID = 1
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'optional'
-EMAIL_HOST = "smtp.sendgrid.net"
-EMAIL_FROM = "kickfundingapp@gmail.com"
-EMAIL_HOST_USER = "apikey"
-EMAIL_HOST_PASSWORD = "SG.INQQHB4eTTmNNPzoyoN9kA.XbHXTeskI-7o9KujIYHwnU05P2mjOomUdVmk9NPaXXk"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
 ACCOUNT_AUTHENTICATION_METHOD = "username_email"
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL = 'index'
@@ -184,5 +181,4 @@ AUTHENTICATION_BACKENDS = [
     'users.backends.EmailOrUsernameModelBackend',
     'django.contrib.auth.backends.ModelBackend',
 ]
-# AUTH_USER_MODEL = 'users.CustomUser'
 LOGOUT_REDIRECT_URL = 'index'
