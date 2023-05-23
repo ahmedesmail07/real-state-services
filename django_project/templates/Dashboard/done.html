@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+ <html> 
+    <head> 
+    <meta charset="utf-8"> <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"> 
+    <title>Multiple Circles on Map</title> 
+    <link rel="stylesheet" href="https://js.arcgis.com/4.19/esri/themes/light/main.css"> 
+    <script src="https://js.arcgis.com/4.19/"></script> 
+    <style> html, body { margin: 0; padding: 0; height: 100%; width: 100%; } 
+    #viewDiv { height: 100%; width: 100%; position: absolute; z-index: 0; } 
+    </style>
+    </head> 
+    <body> <div id="viewDiv"></div> 
+    <script> require([ "esri/Map", "esri/views/SceneView", "esri/widgets/Search", "esri/layers/GraphicsLayer", "esri/Graphic", "esri/PopupTemplate", "esri/symbols/SimpleMarkerSymbol", "esri/geometry/Point" ],
+    function(Map, SceneView, Search, GraphicsLayer, Graphic, PopupTemplate, SimpleMarkerSymbol, Point) {
+    var map = new Map({
+    basemap: "satellite"});
+    
+    var view = new SceneView({
+    container: "viewDiv",
+    map: map,
+    camera: {
+        position: [-118.244, 34.052, 5000],
+        tilt: 60
+    }
+    });
+    
+    var graphicsLayer = new GraphicsLayer();
+    map.add(graphicsLayer);
+    
+    var locations = [
+    { longitude: 31.61696329504788, latitude: 29.87052244622844, color: "green" },
+    { longitude: 31.62332369573642, latitude: 29.86913589336658, color: "yellow" },
+    { longitude: 31.626718223740188, latitude:29.869090615221882, color: "red" }
+    ];
+    
+    var greenSymbol = new SimpleMarkerSymbol({
+      color: "green",
+      size: 20
+    });
+  
+    var blueSymbol = new SimpleMarkerSymbol({
+      color: "yellow",
+      size: 20
+    });
+  
+    var redSymbol = new SimpleMarkerSymbol({
+      color: "red",
+      size: 20
+    });
+    
+    locations.forEach(function(location) {
+      var point = new Point({
+        longitude: location.longitude,
+        latitude: location.latitude
+      });
+      
+      var symbol;
+      if (location.color === "green") {
+        symbol = greenSymbol;
+      } else if (location.color === "yellow") {
+        symbol = blueSymbol;
+      } else if (location.color === "red") {
+        symbol = redSymbol;
+      }
+      
+      var graphic = new Graphic({
+        geometry: point,
+        symbol: symbol,
+        attributes: {
+          name: "Location",
+          description: "This is a location"
+        }
+      });
+      
+      graphicsLayer.add(graphic);
+    });
+    
+    var popupTemplate = new PopupTemplate({
+      title: "{name}",
+      content: "{description}"
+    });
+    
+    view.popup.defaultPopupTemplate = popupTemplate;
+  
+    // Add search widget
+    var searchWidget = new Search({
+      view: view
+    });
+    view.ui.add(searchWidget, {
+      position: "top-right"
+    });
+    
+    // Add [click event listener](poe://www.poe.com/_api/key_phrase?phrase=click%20event%20listener&prompt=Tell%20me%20more%20about%20click%20event%20listener.) to view
+    view.on("click", function(event) {
+      // Retrieve clicked location
+      var clickedLocation = event.mapPoint;
+      // Log latitude and longitude of [clicked location](poe://www.poe.com/_api/key_phrase?phrase=clicked%20location&prompt=Tell%20me%20more%20about%20clicked%20location.) to console
+      console.log("Latitude: " + clickedLocation.latitude + ", Longitude: " + clickedLocation.longitude);
+    });
+    
+  });
+  </script>
+  </body> </html>

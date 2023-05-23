@@ -1,0 +1,67 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Admin Dashboard Page</title>
+    <link rel="stylesheet" href="{% static 'css/Dashboard/style.css'%}" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Dashboard</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Reports</a></li>
+        <li><a href="#">Users</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <h2>Dashboard</h2>
+        <p>Welcome to your Admin Dashboard!</p>
+      </section>
+      <section>
+        <h2>Reports</h2>
+        <p>View your reports here.</p>
+      </section>
+      <section>
+        <h2>Users</h2>
+        <p>Manage your users here.</p>
+      </section>
+      <section>
+        <h2>Electricity services</h2>
+        <p>Manage your services here.</p>
+        <strong class="services-title">
+          <a href="{% url 'dashboard_elec' %}" class="more-details">More</a>
+      </strong>
+      </section>
+      <section>
+        <h2>Water services</h2>
+        <p>Manage your services here.</p>
+        <strong class="services-title">
+          <a href="water.html" class="more-details">More</a>
+      </strong>
+      </section>
+      <section>
+        <h2>Gas services</h2>
+        <p>Manage your services here.</p>
+        <strong class="services-title">
+          <a href="gaz.html" class="more-details">More</a>
+      </strong>
+      </section>
+      <section>
+        <h2>Building services</h2>
+        <p>Manage your services here.</p>
+        <strong class="services-title">
+          <a href="building.html" class="more-details">More</a>
+      </strong>
+      </section>
+      
+    </main>
+    <footer>
+      <p>Copyright &copy; 2023</p>
+    </footer>
+  </body>
+</html>

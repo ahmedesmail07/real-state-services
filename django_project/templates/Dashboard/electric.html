@@ -1,0 +1,47 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="{%static 'css/Dashboard/elect.css' %}">
+    <title>electric</title>
+</head>
+<body>
+    <header>
+        <h1>Electricity Dashboard</h1>
+    </header>
+    <nav>
+        <ul>
+        <li><a href="#">Dashboard</a></li>
+        <li><a href="#">Electricity</a></li>
+        <li><a href="#">Users</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section>
+            <h2> تقديم علي عداد كهرباء  </h2>
+            <p>Welcome to your Admin Dashboard!</p>
+            <strong class="services-title">
+                <a href="{%url 'dashboard_elec1' %}" class="more-details">More</a>
+            </strong>
+        </section>
+        <section>
+            <h2>تحصيل فواتير الكهرباء</h2>
+            <p>Welcome to your Admin Dashboard!</p>
+            <strong class="services-title">
+                <a href="{%url 'dashboard_elec2' %}" class="more-details">More</a>
+            </strong>
+        </section>
+        <section>
+            <h2>أدخل قراءة عداد الكهرباء</h2>
+            <p>Welcome to your Admin Dashboard!</p>
+            <strong class="services-title">
+                <a href="{%url 'dashboard_elec3' %}" class="more-details">More</a>
+            </strong>
+            </section>
+    
+</body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electrical Services Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dash.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Electrical Services Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="overview">
+        <h2>Overview</h2>
+        <div class="card">
+            <h3>Total Customers</h3>
+        </div>
+        <div class="card">
+            <h3>Total rejected</h3>
+        </div>
+        <div class="card">
+            <h3>Total accepted</h3>
+        </div>
+        <div class="card">
+            <h3>Total under revision</h3>
+        </div>
+        <div class="card">
+            <h3>Total Invoices</h3>
+        </div>
+    </section>
+    <section class="customers">
+        <h2>Customers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>قراءة العداد</th>
+                    <th>الشركة التابعة لها</th>
+                    <th>كود السداد الالكتروني</th>
+                    <th>التعليقات  </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment_entry in payment %}
+                <tr>
+                    <td>{{ payment_entry.id }}</td>
+                    <td>{{ payment_entry.meterreding }}</td>
+                    <td>{{ payment_entry.company }}</td>
+                    <td>{{ payment_entry.codenumber }}</td>
+                    <td>{{ payment_entry.comments }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2023 Electrical Services Inc.</p>
+    </footer>
+</body>
+</html>

@@ -36,6 +36,12 @@ urlpatterns = [
     path("users/",include("users.urls")),
     path("api/",include('dj_rest_auth.urls')),
     path('api/registration/', include('dj_rest_auth.registration.urls')),
+    path('dashboard/',views.dashboard,name="dashboard"),
+    path('dashboard/elec/',views.electricityServices,name="dashboard_elec"),
+    path('dashboard/elec/dashelec1/',views.dashelec1,name="dashboard_elec1"),
+    path('dashboard/elec/dashelec2/',views.dashelec2,name="dashboard_elec2"),
+    path('dashboard/elec/dashelec3/',views.dashelec3,name="dashboard_elec3"),
+
     
 ]
 """
