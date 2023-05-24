@@ -1,62 +1,84 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>The Natural Gaz Services Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="dashwater1.css">
+    <title>The Natural Gas Services Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashgaz1.css' %}">
 </head>
 <body>
-	<header>
-		<h1> Gaz Services Dashboard</h1>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Customers</a></li>
-				<li><a href="#">Reports</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section class="overview">
-		<h2>Overview</h2>
-		<div class="card">
-			<h3>Total Customers</h3>
-	
-		</div>
-		<div class="card">
-			<h3>Total rejecte</h3>
-	
-		</div>
-		<div class="card">
-			<h3>Total accept</h3>
-			
-		</div>
-		<div class="card">
-			<h3>Total under revision</h3>
-			
-		</div>
-		
-	</section>
-	<section class="customers">
-		<h2>Customers</h2>
-		<table>
-			<thead>
-				<tr>
-					<th>Id</th>
-					<th>Name</th>
-					<th>National id</th>
-                    <th>address</th>
-					<th>District number</th>
-					<th>Building type</th>
-					<th type = "picture3">Picture1</th>
-					<th>Picture2</th>
-					<th>picture3</th>
-					<th>picture4</th>
-					<th>Order status</th>
-				</tr>
-			</thead>
-		</table>
-	</section>
-	<footer>
-		<p>&copy; 2023 Gaz Services Inc.</p>
-	</footer>
+    <header>
+        <h1>Gaz Services Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="overview">
+        <h2>Overview</h2>
+        <div class="card">
+            <h3>Total Customers</h3>
+        </div>
+        <div class="card">
+            <h3>Total rejected</h3>
+        </div>
+        <div class="card">
+            <h3>Total accepted</h3>
+        </div>
+        <div class="card">
+            <h3>Total under revision</h3>
+        </div>
+    </section>
+    <section class="customers">
+        <h2>Customers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>National ID</th>
+              
+                    <th>Building Type</th>
+                    <th>Picture 1</th>
+                    <th>Picture 2</th>
+                    <th>Picture 3</th>
+                    <th>Picture 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for provide_gas_meter in provide_gas_meter %}
+                <tr>
+                    <td>{{ provide_gas_meter.id }}</td>
+                    <td>{{ provide_gas_meter.name }}</td>
+                    <td>{{ provide_gas_meter.national_identity_card_number }}</td>
+            
+                    <td>{{ provide_gas_meter.origin_type }}</td>
+                    <td>
+                        <!-- Display Picture 1 -->
+                        <img src="{{ provide_gas_meter.national_identity_card_photo.url }}" alt="Picture 1">
+                    </td>
+                    <td>
+                        <!-- Display Picture 2 -->
+                        <img src="{{ provide_gas_meter.copy_of_the_ownership_contract.url }}" alt="Picture 2">
+                    </td>
+                    <td>
+                        <!-- Display Picture 3 -->
+                        <img src="{{ provide_gas_meter.photo_of_recent_electricity_receipt.url }}" alt="Picture 3">
+                    </td>
+                    <td>
+                        <!-- Display Picture 4 -->
+                        <img src="{{ provide_gas_meter.receipt_of_approval_from_gas_company.url }}" alt="Picture 4">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2023 Gaz Services Inc.</p>
+    </footer>
 </body>
 </html>

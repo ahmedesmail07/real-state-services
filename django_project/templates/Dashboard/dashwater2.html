@@ -1,59 +1,73 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Electrical Services Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="dashwater2.css">
+    <title>Water Services Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashwater2.css' %}">
 </head>
 <body>
-	<header>
-		<h1>Water Services Dashboard</h1>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Customers</a></li>
-				<li><a href="#">Reports</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section class="overview">
-		<h2>Overview</h2>
-		<div class="card">
-			<h3>Total Customers</h3>
-			
-		</div>
-		<div class="card">
-			<h3>Total rejecte</h3>
-		
-		</div>
-		<div class="card">
-			<h3>Total accept</h3>
-			
-		</div>
-		<div class="card">
-			<h3>Total under revision</h3>
-		
-		</div>
-		
-	</section>
-	<section class="customers">
-		<h2>Customers</h2>
-		<table>
-			<thead>
-				<tr>
-                    <th>id</th>
-					<th>Name</th>
-                    <th>national id</th>
-					<th> last read counter</th>
+    <header>
+        <h1>Water Services Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="overview">
+        <h2>Overview</h2>
+        <div class="card">
+            <h3>Total Customers</h3>
+        </div>
+        <div class="card">
+            <h3>Total rejected</h3>
+        </div>
+        <div class="card">
+            <h3>Total accepted</h3>
+        </div>
+        <div class="card">
+            <h3>Total under revision</h3>
+        </div>
+    </section>
+    <section class="customers">
+        <h2>Customers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>National ID</th>
+                    <th>Last Read Counter</th>
                     <th>Date</th>
-                    <th> New read counter</th>
-					<th>picture</th>
-					<th>Building type</th>
-				</tr>
-			</thead>
-		</table>
-	</section>
-	<footer>
-		<p>&copy; 2023 Water Services Inc.</p>
-	</footer>
+                    <th>New Read Counter</th>
+                    <th>Picture</th>
+                    <th>Building Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pay_bill_entry in pay_bills %}
+                <tr>
+                    <td>{{ pay_bill_entry.id }}</td>
+                    <td>{{ pay_bill_entry.name }}</td>
+                    <td>{{ pay_bill_entry.national_identity_card_number }}</td>
+                    <td>{{ pay_bill_entry.last_reading }}</td>
+                    <td>{{ pay_bill_entry.last_reading_date }}</td>
+                    <td>{{ pay_bill_entry.current_reading }}</td>
+                    <td>
+                        <!-- Display the counter image -->
+                        <img src="{{ pay_bill_entry.counter_image.url }}" alt="Counter Image">
+                    </td>
+                    <td>{{ pay_bill_entry.origin_type }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2023 Water Services Inc.</p>
+    </footer>
 </body>
 </html>

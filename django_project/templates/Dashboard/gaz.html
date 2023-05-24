@@ -1,3 +1,4 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="gaz.css">
+    <link rel="stylesheet" href="{%static 'css/Dashboard/gaz.css' %}">
     <title>gaz services</title>
 </head>
 <body>
@@ -14,8 +15,8 @@
     </header>
     <nav>
         <ul>
-        <li><a href="#">Dashboard</a></li>
-        <li><a href="#">Gas</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="#">Gas</a></li>
         <li><a href="#">Users</a></li>
         </ul>
     </nav>
@@ -24,21 +25,21 @@
             <h2>Submit a counter request</h2>
             <p>Manage your services here.</p>
             <strong class="services-title">
-                <a href="dashgaz1.html" class="more-details">More</a>
+                <a href="{%url 'dashboard_gas1' %}" class="more-details">More</a>
             </strong>
           </section>
           <section>
             <h2>Enter the natural gas meter reading</h2>
             <p>Manage your services here.</p>
             <strong class="services-title">
-                <a href="dashgaz2.html" class="more-details">More</a>
+                <a href="{%url 'dashboard_gas2' %}" class="more-details">More</a>
             </strong>
           </section>
           <section>
             <h2>Collecting natural gas bills</h2>
             <p>Manage your services here.</p>
             <strong class="services-title">
-                <a href="dashgaz3.html" class="more-details">More</a>
+                <a href="{%url 'dashboard_gas3' %}" class="more-details">More</a>
             </strong>
           </section>
     

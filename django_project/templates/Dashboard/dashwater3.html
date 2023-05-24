@@ -1,59 +1,76 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Electrical Services Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="dashwater3.css">
+    <title>Water Services Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashwater3.css' %}">
 </head>
 <body>
-	<header>
-		<h1>Water Services Dashboard</h1>
-		<nav>
-			<ul>
-				<li><a href="#">Home</a></li>
-				<li><a href="#">Customers</a></li>
-				<li><a href="#">Reports</a></li>
-			</ul>
-		</nav>
-	</header>
-	<section class="overview">
-		<h2>Overview</h2>
-		<div class="card">
-			<h3>Total Customers</h3>
-			
-		</div>
-		<div class="card">
-			<h3>Total rejecte</h3>
-		
-		</div>
-		<div class="card">
-			<h3>Total accept</h3>
-			
-		</div>
-		<div class="card">
-			<h3>Total under revision</h3>
-		
-		</div>
-		
-	</section>
-	<section class="customers">
-		<h2>Customers</h2>
-		<table>
-			<thead>
-				<tr>
-                    <th>id</th>
-					<th>Name</th>
-                    <th>national id</th>
-					<th>picture1</th>
-                    <th>District number</th>
-                    <th> number counter</th>
-					<th>picture2</th>
-					<th>Governorate number</th>
-				</tr>
-			</thead>
-		</table>
-	</section>
-	<footer>
-		<p>&copy; 2023 Water Services Inc.</p>
-	</footer>
+    <header>
+        <h1>Water Services Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="#">Customers</a></li>
+                <li><a href="#">Reports</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="overview">
+        <h2>Overview</h2>
+        <div class="card">
+            <h3>Total Customers</h3>
+        </div>
+        <div class="card">
+            <h3>Total rejected</h3>
+        </div>
+        <div class="card">
+            <h3>Total accepted</h3>
+        </div>
+        <div class="card">
+            <h3>Total under revision</h3>
+        </div>
+    </section>
+    <section class="customers">
+        <h2>Customers</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>National ID</th>
+                    <th>Picture 1</th>
+                    <th>District Number</th>
+                    <th>Number Counter</th>
+                    <th>Picture 2</th>
+                    <th>Governorate Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for collect_water_bill in collect_water_bills %}
+                <tr>
+                    <td>{{ collect_water_bill.id }}</td>
+                    <td>{{ collect_water_bill.name }}</td>
+                    <td>{{ collect_water_bill.national_identity_card_number }}</td>
+                    <td>
+                        <!-- Display Picture 1 -->
+                        <img src="{{ collect_water_bill.picture1.url }}" alt="Picture 1">
+                    </td>
+                    <td>{{ collect_water_bill.neighborhood_number }}</td>
+                    <td>{{ collect_water_bill.counter_number }}</td>
+                    <td>
+                        <!-- Display Picture 2 -->
+                        <img src="{{ collect_water_bill.picture2.url }}" alt="Picture 2">
+                    </td>
+                    <td>{{ collect_water_bill.governorate_number }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    <footer>
+        <p>&copy; 2023 Water Services Inc.</p>
+    </footer>
 </body>
 </html>
