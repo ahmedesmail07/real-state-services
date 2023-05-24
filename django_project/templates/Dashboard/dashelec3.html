@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Electrical Services Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dash.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Electrical Services Dashboard</h1>
@@ -44,7 +46,7 @@
                     <th>قراءة العداد</th>
                     <th>الشركة التابعة لها</th>
                     <th>كود السداد الالكتروني</th>
-                    <th>التعليقات  </th>
+                    <th>التعليقات </th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +57,13 @@
                     <td>{{ payment_entry.company }}</td>
                     <td>{{ payment_entry.codenumber }}</td>
                     <td>{{ payment_entry.comments }}</td>
+                    <td>
+                        <!-- Display the images here -->
+                        <img src="{{ payment_entry.image.url }}" alt="Attachment Image">
+
+                    </td>
                 </tr>
+
                 {% endfor %}
             </tbody>
         </table>
@@ -64,4 +72,5 @@
         <p>&copy; 2023 Electrical Services Inc.</p>
     </footer>
 </body>
+
 </html>

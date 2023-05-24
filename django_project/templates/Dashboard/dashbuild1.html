@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Electrical Services Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashbuild1.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Building Services Dashboard</h1>
@@ -44,7 +46,7 @@
                     <th>The number of the agricultural basin to which it belongs</th>
                     <th>Phone</th>
                     <th>Picture1</th>
-            
+
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +62,19 @@
                         <!-- Display Picture1 -->
                         <img src="{{ building_application.national_identity_card_photo.url }}" alt="Picture1">
                     </td>
-      
+                    <td>
+                        <!-- Display Picture2 -->
+                        <img src="{{ building_application.documents_ownership.url }}" alt="Picture1">
+                    </td>
+                    <td>
+                        <!-- Display Picture3 -->
+                        <img src="{{ building_application.agricultural_approval.url }}" alt="Picture1">
+                    </td>
+                    <td>
+                        <!-- Display Picture4 -->
+                        <img src="{{ building_application.approval_photos.url }}" alt="Picture1">
+                    </td>
+
                 </tr>
                 {% endfor %}
             </tbody>
@@ -70,4 +84,5 @@
         <p>&copy; 2023 Building Services Inc.</p>
     </footer>
 </body>
+
 </html>

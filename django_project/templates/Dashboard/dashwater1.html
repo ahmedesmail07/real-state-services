@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Water Services Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashwater1.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Water Services Dashboard</h1>
@@ -56,19 +58,19 @@
                     <td>{{ water_meter_entry.district_number }}</td>
                     <td>
                         <!-- Display picture 1 -->
-                        <img src="{{ water_meter_entry.picture1.url }}" alt="Picture 1">
+                        <img src="{{ water_meter_entry.national_identity_card_photo.url }}" alt="Picture 1">
                     </td>
                     <td>
                         <!-- Display picture 2 -->
-                        <img src="{{ water_meter_entry.picture2.url }}" alt="Picture 2">
+                        <img src="{{ water_meter_entry.copy_of_the_ownership_contract.url }}" alt="Picture 2">
                     </td>
                     <td>
                         <!-- Display picture 3 -->
-                        <img src="{{ water_meter_entry.picture3.url }}" alt="Picture 3">
+                        <img src="{{ water_meter_entry.builging_license.url }}" alt="Picture 3">
                     </td>
                     <td>
                         <!-- Display picture 4 -->
-                        <img src="{{ water_meter_entry.picture4.url }}" alt="Picture 4">
+                        <img src="{{ water_meter_entry.house_measurement.url }}" alt="Picture 4">
                     </td>
                     <td>{{ water_meter_entry.order_status }}</td>
                 </tr>
@@ -80,4 +82,5 @@
         <p>&copy; 2023 Water Services Inc.</p>
     </footer>
 </body>
+
 </html>

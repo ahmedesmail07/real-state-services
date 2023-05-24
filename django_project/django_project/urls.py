@@ -8,7 +8,8 @@ from dj_rest_auth.views import (
 from users.views import *
 from users.api_views import *
 from . import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -52,7 +53,7 @@ urlpatterns = [
     path('dashboard/building/',views.buildingSerivces,name="dashboard_building"),    
     path('dashboard/building/dashbuild1',views.dashbuild1,name="dashboard_building1"),    
     path('dashboard/building/dashbuild2',views.dashbuild2,name="dashboard_building2"),    
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 """
 END POINTS OF ALL AUTH :
 accounts/signup/ [name='account_signup']

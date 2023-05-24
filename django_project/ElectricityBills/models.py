@@ -6,7 +6,7 @@ class Payment(models.Model):
     codenumber = models.CharField(max_length=20)
     meterreding = models.CharField(max_length=20)
     company = models.CharField(max_length=20)
-    image = models.ImageField(upload_to='static/images/')
+    image = models.ImageField(upload_to='images/')
     comments = models.TextField()
 
     def __str__(self):
@@ -27,8 +27,8 @@ class MeterRequest(models.Model):
     address = models.CharField(max_length=30)
     block_num = models.IntegerField()
     phone_num2 = models.IntegerField()
-    att_image = models.ImageField(upload_to='static/images/')
-    id_image = models.ImageField(upload_to='static/images/')
+    att_image = models.ImageField(upload_to='images/')
+    id_image = models.ImageField(upload_to='images/')
     approvale_authority_name = models.CharField(max_length=50)
     approvale_authority = models.CharField(max_length=50)
     applicant = models.CharField(max_length=50)
@@ -69,8 +69,8 @@ class LicenseRequest(models.Model):
     governorate =models.CharField(max_length=10)
     phone_num2 = models.IntegerField()
     block_number = models.IntegerField()
-    image1 = models.ImageField(upload_to='static/images/')
-    image2 = models.ImageField(upload_to='static/images/')
+    image1 = models.ImageField(upload_to='images/')
+    image2 = models.ImageField(upload_to='images/')
     facility_type = models.CharField(max_length=30)
     authority = models.CharField(max_length=30)
     authority_name = models.CharField(max_length=30)
@@ -90,8 +90,8 @@ class LicenseRequestForm(forms.ModelForm):
         model = LicenseRequest
         fields = "__all__"
 class ReconciliationRequest(models.Model):
-    image1 = models.ImageField(upload_to='static/images/')
-    image2 = models.ImageField(upload_to='static/images/')
+    image1 = models.ImageField(upload_to='images/')
+    image2 = models.ImageField(upload_to='images/')
     latitude = models.FloatField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
 

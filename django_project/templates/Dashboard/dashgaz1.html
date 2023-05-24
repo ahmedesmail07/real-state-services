@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>The Natural Gas Services Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashgaz1.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Gaz Services Dashboard</h1>
@@ -40,7 +42,7 @@
                     <th>Id</th>
                     <th>Name</th>
                     <th>National ID</th>
-              
+
                     <th>Building Type</th>
                     <th>Picture 1</th>
                     <th>Picture 2</th>
@@ -54,7 +56,7 @@
                     <td>{{ provide_gas_meter.id }}</td>
                     <td>{{ provide_gas_meter.name }}</td>
                     <td>{{ provide_gas_meter.national_identity_card_number }}</td>
-            
+
                     <td>{{ provide_gas_meter.origin_type }}</td>
                     <td>
                         <!-- Display Picture 1 -->
@@ -81,4 +83,5 @@
         <p>&copy; 2023 Gaz Services Inc.</p>
     </footer>
 </body>
+
 </html>

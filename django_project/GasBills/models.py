@@ -21,13 +21,13 @@ class ProvideGasMeter(models.Model):
     name = models.CharField(max_length=300, blank=False, null=False)
     national_identity_card_number = models.CharField(
         max_length=14, blank=False, null=False)
-    national_identity_card_photo = models.ImageField(upload_to='static/images/')
+    national_identity_card_photo = models.ImageField(upload_to='images/')
     copy_of_the_ownership_contract = models.ImageField(
-        upload_to='static/images/')
+        upload_to='images/')
     photo_of_recent_electricity_receipt = models.ImageField(
-       upload_to='static/images/')
+       upload_to='images/')
     receipt_of_approval_from_gas_company = models.ImageField(
-       upload_to='static/images/')
+       upload_to='images/')
     origin_type = models.CharField(max_length=100, 
     choices=ORIGIN_TYPES_CHOICES,default='اختر من القائمة التالية')
 
@@ -42,7 +42,7 @@ class NaturalGasReading(models.Model):
     last_reading= models.CharField(max_length=300, blank=False, null=False)
     last_reading_date = models.DateField()
     current_reading = models.CharField(max_length=300)
-    counter_image = models.ImageField(upload_to='static/images/')
+    counter_image = models.ImageField(upload_to='images/')
     origin_type = models.CharField(max_length=100, 
     choices=FACILITY_TYPES_CHOICES,default='برجاء تحديد المنشأ')
 
@@ -56,12 +56,12 @@ class CollectingGasBills(models.Model):
     national_identity_card_number = models.CharField(
         max_length=14, blank=False, null=False)
     counter_image = models.ImageField(
-       upload_to='static/images/')
+       upload_to='images/')
     counter_number = models.CharField(max_length=20)
     neighborhood_number= models.PositiveIntegerField()
     governorate_number = models.PositiveIntegerField()
     another_counter_image = models.ImageField(
-       upload_to='static/images/')
+       upload_to='images/')
     
     def __str__(self): 
         return self.name  

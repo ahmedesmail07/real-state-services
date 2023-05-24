@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Water Services Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashwater3.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Water Services Dashboard</h1>
@@ -55,13 +57,13 @@
                     <td>{{ collect_water_bill.national_identity_card_number }}</td>
                     <td>
                         <!-- Display Picture 1 -->
-                        <img src="{{ collect_water_bill.picture1.url }}" alt="Picture 1">
+                        <img class="img" src="{{ collect_water_bill.counter_image.url }}" alt="Picture 1">
                     </td>
                     <td>{{ collect_water_bill.neighborhood_number }}</td>
                     <td>{{ collect_water_bill.counter_number }}</td>
                     <td>
                         <!-- Display Picture 2 -->
-                        <img src="{{ collect_water_bill.picture2.url }}" alt="Picture 2">
+                        <img class="img" src="{{ collect_water_bill.another_counter_image.url }}" alt="Picture 2">
                     </td>
                     <td>{{ collect_water_bill.governorate_number }}</td>
                 </tr>
@@ -73,4 +75,5 @@
         <p>&copy; 2023 Water Services Inc.</p>
     </footer>
 </body>
+
 </html>

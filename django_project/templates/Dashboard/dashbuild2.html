@@ -2,10 +2,12 @@
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Electrical Services Dashboard</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/Dashboard/dashbuild1.css' %}">
 </head>
+
 <body>
     <header>
         <h1>Building Services Dashboard</h1>
@@ -48,7 +50,7 @@
                     <th>Picture3</th>
                     <th>Picture4</th>
                     <th>Determine the area to be built on in detail</th>
-               
+
                 </tr>
             </thead>
             <tbody>
@@ -77,7 +79,7 @@
                         <img src="{{ collecting_building.approval_photos.url }}" alt="Picture4">
                     </td>
                     <td>{{ collecting_building.space }}</td>
-                
+
                 </tr>
                 {% endfor %}
             </tbody>
@@ -87,4 +89,5 @@
         <p>&copy; 2023 Building Services Inc.</p>
     </footer>
 </body>
+
 </html>
