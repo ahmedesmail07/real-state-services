@@ -30,8 +30,21 @@
         </nav>
         <div class="icons" dir="rtl">
             <div id="menu-btn" class="fas fa-bars"></div>
-            <div id="info-btn" class="fas fa-info-circle"></div>
-            <div id="search-btn" class="fas fa-search"></div>
+            
+                <a href="{% url 'dashboard' %}"><div id="info-btn" class="fas fa-info-circle">   </div></a>
+         
+            {%if user.is_authenticated%}
+            {% if not user.is_superuser %}
+            <a href="{% url 'room' user.username %}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700">            <div id="search-btn" class="fas fa-search">
+            </div>
+        </a>
+            {% endif %}
+            {% endif %}
+            {% if  user.is_superuser %}
+            <a href="{% url 'rooms'  %}" class="px-5 py-3 block rounded-xl text-white bg-teal-600 hover:bg-teal-700">            <div id="search-btn" class="fas fa-search">
+            </div>
+        </a>
+            {% endif %}
             {%if user.is_authenticated%}
             <a href="{% url 'account_logout' %}">
                 <div id="logout-btn" class="fa fa-sign-out fa-xl"></div>
