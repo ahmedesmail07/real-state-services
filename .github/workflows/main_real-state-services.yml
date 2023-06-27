@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'real-state-services'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9D7E6A42F88248118D99B7D55CCBB33D }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EEA1229C53354719B16C175DCD563E31 }}
